@@ -23,7 +23,8 @@ export default function AchievementsPage() {
       venue: 'IIITDM Kancheepuram, 2024',
       // description: 'Developed an innovative IoT solution for urban waste management',
       images: [
-        '/vashisht_hackathon/vash2.jpg',        '/vashisht_hackathon/vash5.jpg',
+        '/Vashisht_Hackathon/vash2.jpg',
+        '/Vashisht_Hackathon/vash5.jpg',
 
         '/Vashisht_Hackathon/vash3.jpg',
         '/Vashisht_Hackathon/vash4.jpg','/Vashisht_Hackathon/vashist13.jpg',
