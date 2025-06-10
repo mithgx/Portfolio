@@ -16,9 +16,21 @@ export const NAV_ITEMS = [
 ];
 
 export const SOCIAL_LINKS = [
-  { name: "GitHub", url: "https://github.com/mithilesh-g-47", icon: "Github" },
-  { name: "LinkedIn", url: "https://linkedin.com/in/mithileshgopalakrishnan", icon: "Linkedin" },
-  { name: "Twitter", url: "https://twitter.com/username", icon: "Twitter" },
+  { 
+    name: "GitHub", 
+    url: "https://github.com/mithilesh-g-47", 
+    icon: "Github" 
+  },
+  { 
+    name: "LinkedIn", 
+    url: "https://www.linkedin.com/in/mithileshgopalakrishnan/", 
+    icon: "Linkedin" 
+  },
+  { 
+    name: "Twitter", 
+    url: "https://twitter.com/username", 
+    icon: "Twitter" 
+  },
 ];
 
 export const SKILLS = [
