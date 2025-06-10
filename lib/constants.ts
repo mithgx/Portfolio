@@ -16,8 +16,8 @@ export const NAV_ITEMS = [
 ];
 
 export const SOCIAL_LINKS = [
-  { name: "GitHub", url: "https://github.com/username", icon: "Github" },
-  { name: "LinkedIn", url: "https://linkedin.com/in/username", icon: "Linkedin" },
+  { name: "GitHub", url: "https://github.com/mithilesh-g-47", icon: "Github" },
+  { name: "LinkedIn", url: "https://linkedin.com/in/mithileshgopalakrishnan", icon: "Linkedin" },
   { name: "Twitter", url: "https://twitter.com/username", icon: "Twitter" },
 ];
 

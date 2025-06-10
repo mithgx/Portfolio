@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { Trophy } from 'lucide-react';
 import { fadeIn } from '@/lib/animations';
-import { NavTabs } from '@/components/nav-tabs';
 import {
   Carousel,
   CarouselContent,
@@ -27,7 +26,10 @@ export default function AchievementsPage() {
         '/vashisht_hackathon/vash2.jpg',        '/vashisht_hackathon/vash5.jpg',
 
         '/Vashisht_Hackathon/vash3.jpg',
-        '/Vashisht_Hackathon/vash4.jpg',
+        '/Vashisht_Hackathon/vash4.jpg','/Vashisht_Hackathon/vashist13.jpg',
+        '/Vashisht_Hackathon/vashist11.jpg',
+        
+      
       ],
     },
     {
@@ -38,6 +40,8 @@ export default function AchievementsPage() {
         
         '/MLMania_Hackathon/ml2.jpg',
         '/MLMania_Hackathon/ml3.jpg',
+        '/MLMania_Hackathon/mlmania.jpg',
+        '/MLMania_Hackathon/annauni12.jpg',
       ],
     },
     {
@@ -64,6 +68,7 @@ export default function AchievementsPage() {
       images: [
         '/CodeCycle_Hackathon/CodeCycle24 x GT-0332.png',
         '/CodeCycle_Hackathon/CodeCycle24 x GT-0040.png',
+        '/CodeCycle_Hackathon/annauni11.jpg',
 
       ],
     },
@@ -80,92 +85,91 @@ export default function AchievementsPage() {
   ];
 
   return (
-    <>
-      <NavTabs />
-      <main className="min-h-screen bg-background py-20">
-        <div className="container px-4 mx-auto">
-          <motion.div
-            variants={fadeIn('up', 0.2)}
-            initial="hidden"
-            animate="show"
-            className="text-center mb-12"
-          >
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Hackathon Achievements</h1>
-            <p className="text-lg text-muted-foreground">
-              Showcasing innovation and problem-solving through competitive coding
-            </p>
-          </motion.div>
+    <main className="min-h-screen bg-background py-20 achievements-page">
+      <div className="container px-4 mx-auto">
+        <motion.div
+          variants={fadeIn('up', 0.2)}
+          initial="hidden"
+          animate="show"
+          className="text-center mb-12"
+        >
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Hackathon Achievements</h1>
+          <p className="text-lg text-muted-foreground">
+            Showcasing innovation and problem-solving through competitive coding
+          </p>
+        </motion.div>
 
-          <div className="max-w-5xl mx-auto space-y-16">
-            {hackathonAchievements.map((achievement, index) => (
-              <motion.div
-                key={achievement.title}
-                variants={fadeIn('up', 0.1 * index)}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-                className="group"
-              >
-                <div className="grid md:grid-cols-2 gap-8 items-center">
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-4">
-                      <Trophy className="h-8 w-8 text-primary flex-shrink-0 mt-1" />
-                      <div>
-                        <h2 className="text-2xl font-semibold">{achievement.title}</h2>
-                        <p className="text-sm text-muted-foreground mt-1">
-                          {achievement.venue}
-                        </p>
-                      </div>
+        <div className="max-w-5xl mx-auto space-y-16">
+          {hackathonAchievements.map((achievement, index) => (
+            <motion.div
+              key={achievement.title}
+              variants={fadeIn('up', 0.1 * index)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="group"
+            >
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="space-y-4">
+                  <div className="flex items-start gap-4">
+                    <Trophy className="h-8 w-8 text-primary flex-shrink-0 mt-1" />
+                    <div>
+                      <h2 className="text-2xl font-semibold">{achievement.title}</h2>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        {achievement.venue}
+                      </p>
                     </div>
-                    {typeof (achievement as any).description === 'string' && (
-                      <p className="text-muted-foreground">{(achievement as any).description}</p>
-                    )}
                   </div>
-
-                  <div className="relative rounded-lg overflow-hidden ">
-                    <Carousel className="relative w-full">
-                      <CarouselContent>
-                        {achievement.images.map((image, imageIndex) => (
-                          <CarouselItem key={imageIndex}>
-                            <div className="relative w-full h-[200px] sm:h-[250px] md:h-[300px] flex items-center justify-center overflow-hidden bg-transparent cursor-pointer" onClick={() => setOpenImage(image)}>
-                              <Image
-                                src={image}
-                                alt={`${achievement.title} image ${imageIndex + 1}`}
-                                fill
-                                className="object-contain"
-                              />
-                            </div>
-                          </CarouselItem>
-                        ))}
-                      </CarouselContent>
-
-                      {/* Scroll Buttons (fixed position inside image) */}
-                      <CarouselPrevious
-                        className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-0 bg-transparent hover:bg-transparent shadow-none border-none"
-                        variant="ghost"
-                        size="icon"
-                      />
-
-                      <CarouselNext
-                        className="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-0 bg-transparent hover:bg-transparent shadow-none border-none"
-                        variant="ghost"
-                        size="icon"
-                      />
-                    </Carousel>
-                    <Dialog open={!!openImage} onOpenChange={() => setOpenImage(null)}>
-                      <DialogContent className="max-w-4xl p-0 bg-black flex items-center justify-center">
-                        {openImage && (
-                          <Image src={openImage} alt="Full Size" width={1200} height={800} className="w-full h-auto object-contain max-h-[80vh]" />
-                        )}
-                      </DialogContent>
-                    </Dialog>
-                  </div>
+                  {typeof (achievement as any).description === 'string' && (
+                    <p className="text-muted-foreground">{(achievement as any).description}</p>
+                  )}
                 </div>
-              </motion.div>
-            ))}
-          </div>
+
+                <div className="relative rounded-lg overflow-hidden">
+                  <Carousel className="relative w-full">
+                    <CarouselContent className="no-animation">
+                      {achievement.images.map((image, imageIndex) => (
+                        <CarouselItem key={imageIndex} className="no-animation">
+                          <div 
+                            className="relative w-full h-[200px] sm:h-[250px] md:h-[300px] flex items-center justify-center overflow-hidden bg-transparent cursor-pointer no-animation" 
+                            onClick={() => setOpenImage(image)}
+                          >
+                            <Image
+                              src={image}
+                              alt={`${achievement.title} image ${imageIndex + 1}`}
+                              fill
+                              className="object-contain no-animation"
+                            />
+                          </div>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+
+                    <CarouselPrevious
+                      className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-0 bg-transparent hover:bg-transparent shadow-none border-none"
+                      variant="ghost"
+                      size="icon"
+                    />
+
+                    <CarouselNext
+                      className="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-0 bg-transparent hover:bg-transparent shadow-none border-none"
+                      variant="ghost"
+                      size="icon"
+                    />
+                  </Carousel>
+                  <Dialog open={!!openImage} onOpenChange={() => setOpenImage(null)}>
+                    <DialogContent className="max-w-4xl p-0 bg-black flex items-center justify-center">
+                      {openImage && (
+                        <Image src={openImage} alt="Full Size" width={1200} height={800} className="w-full h-auto object-contain max-h-[80vh]" />
+                      )}
+                    </DialogContent>
+                  </Dialog>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
-      </main>
-    </>
+      </div>
+    </main>
   );
 }

@@ -1,13 +1,17 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Outfit } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
+import { NavTabs } from '@/components/nav-tabs';
 
-const inter = Inter({ subsets: ['latin'] });
+const outfit = Outfit({ 
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
-  title: 'Portfolio',
-  description: 'Personal portfolio showcasing projects and experience',
+  title: 'Mithilesh Portfolio',
+  description: 'Portfolio website showcasing my work and experience',
 };
 
 export default function RootLayout({
@@ -16,15 +20,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className={inter.className}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={outfit.className}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
+          defaultTheme="system"
+          enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <NavTabs />
+          <div className="main-content">
+            <div className="grid-background min-h-screen bg-background">
+              {children}
+            </div>
+          </div>
         </ThemeProvider>
       </body>
     </html>

@@ -1,8 +1,8 @@
 export const fadeIn = (direction: string, delay: number) => {
   return {
     hidden: {
-      y: direction === 'up' ? 40 : direction === 'down' ? -40 : 0,
-      x: direction === 'left' ? 40 : direction === 'right' ? -40 : 0,
+      y: direction === 'up' ? 20 : direction === 'down' ? -20 : 0,
+      x: direction === 'left' ? 20 : direction === 'right' ? -20 : 0,
       opacity: 0,
     },
     show: {
@@ -10,10 +10,11 @@ export const fadeIn = (direction: string, delay: number) => {
       x: 0,
       opacity: 1,
       transition: {
-        type: 'tween',
-        duration: 0.8,
-        delay,
-        ease: [0.25, 0.25, 0.25, 0.75],
+        type: 'spring',
+        stiffness: 300,
+        damping: 20,
+        delay: delay * 0.2,
+        duration: 0.3,
       },
     },
   };
@@ -24,8 +25,11 @@ export const staggerContainer = (staggerChildren: number, delayChildren: number)
     hidden: {},
     show: {
       transition: {
-        staggerChildren,
-        delayChildren,
+        staggerChildren: staggerChildren * 0.2,
+        delayChildren: delayChildren * 0.2,
+        type: 'spring',
+        stiffness: 300,
+        damping: 20,
       },
     },
   };
@@ -34,7 +38,7 @@ export const staggerContainer = (staggerChildren: number, delayChildren: number)
 export const textVariant = (delay: number) => {
   return {
     hidden: {
-      y: 50,
+      y: 20,
       opacity: 0,
     },
     show: {
@@ -42,8 +46,10 @@ export const textVariant = (delay: number) => {
       opacity: 1,
       transition: {
         type: 'spring',
-        duration: 1.25,
-        delay,
+        stiffness: 300,
+        damping: 20,
+        delay: delay * 0.2,
+        duration: 0.3,
       },
     },
   };
@@ -59,10 +65,11 @@ export const slideIn = (direction: string, type: string, delay: number, duration
       x: 0,
       y: 0,
       transition: {
-        type,
-        delay,
-        duration,
-        ease: 'easeOut',
+        type: 'spring',
+        stiffness: 300,
+        damping: 20,
+        delay: delay * 0.2,
+        duration: duration * 0.3,
       },
     },
   };
@@ -79,9 +86,10 @@ export const scale = (delay: number, duration: number) => {
       opacity: 1,
       transition: {
         type: 'spring',
-        delay,
-        duration,
-        ease: 'easeOut',
+        stiffness: 300,
+        damping: 20,
+        delay: delay * 0.2,
+        duration: duration * 0.3,
       },
     },
   };

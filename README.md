@@ -5,7 +5,7 @@ A modern, responsive portfolio website built with Next.js, React, and Tailwind C
 ## 🚀 Features
 
 - **Modern UI**: Clean, responsive design with dark mode support
-- **Projects Showcase**: Highlight your best work with live demos and GitHub links
+- **Projects Showcase**: Highlighting best work with live demos and GitHub links
 - **Experience & Education**: Tabbed view for professional and academic background
 - **Achievements**: Carousel and full-size modal view for hackathon and competition wins
 - **Contact**: Email copy-to-clipboard with toast notification
@@ -43,11 +43,11 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-## 🖼️ Customization
+
+## 🖼️ Customization - (For your own customization after pulling my repo)
 - Update your details in `lib/constants.ts` (projects, experience, education, etc.)
-- Add your images/logos to the `public/` or `public/logos/` directory
+- Add your images/logos to the `public/` or `public/logos/` directory 
 - Tweak styles in `app/globals.css` or Tailwind config
 
 ## 🛠️ Build for Production
