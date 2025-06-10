@@ -104,7 +104,7 @@ export default function ContactPage() {
               <h3 className="text-lg font-semibold">Follow Me</h3>
               <div className="flex gap-4">
                 <Button variant="outline" size="icon" asChild>
-                  <a href="https://github.com/mithilesh-g-47" target="_blank" rel="noopener noreferrer">
+                  <a href="https://github.com/mithgx" target="_blank" rel="noopener noreferrer">
                     <Github className="h-5 w-5" />
                   </a>
                 </Button>

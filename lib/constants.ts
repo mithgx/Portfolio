@@ -18,7 +18,7 @@ export const NAV_ITEMS = [
 export const SOCIAL_LINKS = [
   { 
     name: "GitHub", 
-    url: "https://github.com/mithilesh-g-47", 
+    url: "https://github.com/mithgx", 
     icon: "Github" 
   },
   { 
