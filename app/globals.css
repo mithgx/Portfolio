@@ -175,3 +175,15 @@ html {
   transition: none !important;
   animation: none !important;
 }
+
+/* Dialog Backdrop */
+[data-dialog-backdrop] {
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+/* Dialog Content */
+[data-dialog-content] {
+  border: none !important;
+  box-shadow: none !important;
+}

@@ -158,9 +158,16 @@ export default function AchievementsPage() {
                     />
                   </Carousel>
                   <Dialog open={!!openImage} onOpenChange={() => setOpenImage(null)}>
-                    <DialogContent className="max-w-4xl p-0 bg-black flex items-center justify-center">
+                    <DialogContent className="max-w-4xl bg-transparent backdrop-blur-xl backdrop-saturate-150 border-none p-4 flex items-center justify-center">
                       {openImage && (
-                        <Image src={openImage} alt="Full Size" width={1200} height={800} className="w-full h-auto object-contain max-h-[80vh]" />
+                        <div className="relative w-full h-[80vh] flex items-center justify-center">
+                          <Image 
+                            src={openImage} 
+                            alt="Full Size" 
+                            fill
+                            className="object-contain"
+                          />
+                        </div>
                       )}
                     </DialogContent>
                   </Dialog>
