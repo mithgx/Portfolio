@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { Outfit } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import { NavTabs } from '@/components/nav-tabs';
-
+import { Analytics } from "@vercel/analytics/next"
 const outfit = Outfit({ 
   subsets: ['latin'],
   display: 'swap',
@@ -35,6 +35,7 @@ export default function RootLayout({
             </div>
           </div>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
