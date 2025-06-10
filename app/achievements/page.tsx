@@ -12,10 +12,43 @@ import {
 } from '@/components/ui/carousel';
 import Image from 'next/image';
 import { Dialog, DialogTrigger, DialogContent } from '@/components/ui/dialog';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import type { CarouselApi } from '@/components/ui/carousel';
 
 export default function AchievementsPage() {
   const [openImage, setOpenImage] = useState<string | null>(null);
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+
+  // Handle keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (openImage) {
+        if (e.key === 'Escape') {
+          setOpenImage(null);
+        }
+        return;
+      }
+
+      if (e.key === 'ArrowLeft') {
+        api?.scrollPrev();
+      } else if (e.key === 'ArrowRight') {
+        api?.scrollNext();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [api, openImage]);
+
+  // Track current slide
+  useEffect(() => {
+    if (!api) return;
+
+    api.on('select', () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
 
   const hackathonAchievements = [
     {
@@ -86,8 +119,8 @@ export default function AchievementsPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-background py-20 achievements-page">
-      <div className="container px-4 mx-auto">
+    <main className="min-h-screen bg-background py-12 md:py-20 overflow-hidden">
+      <div className="container mx-auto px-4 md:px-6">
         <motion.div
           variants={fadeIn('up', 0.2)}
           initial="hidden"
@@ -127,7 +160,13 @@ export default function AchievementsPage() {
                 </div>
 
                 <div className="relative rounded-lg overflow-hidden">
-                  <Carousel className="relative w-full">
+                  <Carousel 
+                    className="relative w-full"
+                    setApi={setApi}
+                    opts={{
+                      loop: true,
+                    }}
+                  >
                     <CarouselContent className="no-animation">
                       {achievement.images.map((image, imageIndex) => (
                         <CarouselItem key={imageIndex} className="no-animation">
@@ -140,6 +179,7 @@ export default function AchievementsPage() {
                               alt={`${achievement.title} image ${imageIndex + 1}`}
                               fill
                               className="object-contain no-animation"
+                              priority={index === 0}
                             />
                           </div>
                         </CarouselItem>
@@ -147,15 +187,11 @@ export default function AchievementsPage() {
                     </CarouselContent>
 
                     <CarouselPrevious
-                      className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-0 bg-transparent hover:bg-transparent shadow-none border-none"
-                      variant="ghost"
-                      size="icon"
+                      className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-0 bg-background/80 hover:bg-background/90 shadow-none border-none"
                     />
 
                     <CarouselNext
-                      className="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-0 bg-transparent hover:bg-transparent shadow-none border-none"
-                      variant="ghost"
-                      size="icon"
+                      className="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-0 bg-background/80 hover:bg-background/90 shadow-none border-none"
                     />
                   </Carousel>
                   <Dialog open={!!openImage} onOpenChange={() => setOpenImage(null)}>
@@ -167,6 +203,7 @@ export default function AchievementsPage() {
                             alt="Full Size" 
                             fill
                             className="object-contain"
+                            priority
                           />
                         </div>
                       )}
