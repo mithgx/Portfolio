@@ -11,7 +11,7 @@ import { SOCIAL_LINKS } from '@/lib/constants';
 const userData = {
   location: "Chennai, India",
   role: "Mithilesh Gopalakrishnan . S",
-  role_desc: "Passionate about creating innovative web solutions and turning ideas into reality"
+  role_desc: "Passionate about developing insights and turning ideas into reality"
 };
 
 export default function Home() {
