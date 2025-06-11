@@ -38,22 +38,18 @@ export default function Home() {
             Based In {userData.location.toUpperCase()}
           </motion.div>
 
-          <div className="title">
-            {letters.map((letter, index) => (
-              <motion.h1
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.2,
-                  delay: index * 0.02,
-                }}
-                className="title-letter"
-              >
-                {letter === " " ? "\u00A0" : letter}
-              </motion.h1>
-            ))}
-          </div>
+          <motion.div
+            variants={fadeIn('up', 0.1)}
+            initial="hidden"
+            animate="show"
+            className="text-center"
+          >
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">
+              <span className="block md:inline">Hi, I'm</span>{' '}
+              <span className="text-primary block md:inline">Mithilesh</span>{' '}
+              <span className="block md:inline"></span>
+            </h1>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}

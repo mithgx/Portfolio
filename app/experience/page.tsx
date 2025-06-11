@@ -8,7 +8,7 @@ import { EXPERIENCE, EDUCATION } from "@/lib/constants";
 
 export default function ExperiencePage() {
   return (
-    <main className="min-h-screen bg-background py-20">
+    <main className="experience-page min-h-screen bg-background py-20">
       <div className="container px-4 mx-auto">
         <motion.div
           variants={fadeIn("up", 0.2)}
@@ -37,7 +37,7 @@ export default function ExperiencePage() {
                   initial="hidden"
                   whileInView="show"
                   viewport={{ once: true }}
-                  className="flex items-center gap-6 p-6 rounded-lg border bg-card text-card-foreground"
+                  className="flex flex-col md:flex-row items-start md:items-center gap-3 md:gap-6 p-3 md:p-6 rounded-lg border bg-card text-card-foreground"
                 >
                   <div className="flex-shrink-0">
                     {/* Company logo: using placeholder */}
