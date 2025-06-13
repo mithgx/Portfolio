@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Trophy } from 'lucide-react';
+import { Trophy, ChevronLeft, ChevronRight } from 'lucide-react';
 import { fadeIn } from '@/lib/animations';
 import {
   Carousel,
@@ -11,14 +11,17 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import Image from 'next/image';
-import { Dialog, DialogTrigger, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogTrigger, DialogContent, DialogTitle } from '@/components/ui/dialog';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 import { useState, useEffect } from 'react';
 import type { CarouselApi } from '@/components/ui/carousel';
+import { Button } from '@/components/ui/button';
 
 export default function AchievementsPage() {
   const [openImage, setOpenImage] = useState<string | null>(null);
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
+  const [currentImages, setCurrentImages] = useState<string[]>([]);
 
   // Handle keyboard navigation
   useEffect(() => {
@@ -26,6 +29,16 @@ export default function AchievementsPage() {
       if (openImage) {
         if (e.key === 'Escape') {
           setOpenImage(null);
+        } else if (e.key === 'ArrowLeft') {
+          const currentIndex = currentImages.indexOf(openImage);
+          if (currentIndex > 0) {
+            setOpenImage(currentImages[currentIndex - 1]);
+          }
+        } else if (e.key === 'ArrowRight') {
+          const currentIndex = currentImages.indexOf(openImage);
+          if (currentIndex < currentImages.length - 1) {
+            setOpenImage(currentImages[currentIndex + 1]);
+          }
         }
         return;
       }
@@ -39,7 +52,7 @@ export default function AchievementsPage() {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [api, openImage]);
+  }, [api, openImage, currentImages]);
 
   // Track current slide
   useEffect(() => {
@@ -49,6 +62,25 @@ export default function AchievementsPage() {
       setCurrent(api.selectedScrollSnap());
     });
   }, [api]);
+
+  const handleImageClick = (image: string, images: string[]) => {
+    setCurrentImages(images);
+    setOpenImage(image);
+  };
+
+  const handlePrevImage = () => {
+    const currentIndex = currentImages.indexOf(openImage!);
+    if (currentIndex > 0) {
+      setOpenImage(currentImages[currentIndex - 1]);
+    }
+  };
+
+  const handleNextImage = () => {
+    const currentIndex = currentImages.indexOf(openImage!);
+    if (currentIndex < currentImages.length - 1) {
+      setOpenImage(currentImages[currentIndex + 1]);
+    }
+  };
 
   const hackathonAchievements = [
     {
@@ -146,7 +178,7 @@ export default function AchievementsPage() {
               <div className="grid md:grid-cols-2 gap-4 md:gap-8 items-center">
                 <div className="space-y-3 md:space-y-4">
                   <div className="flex items-start gap-3 md:gap-4">
-                    <Trophy className="h-6 w-6 md:h-8 md:w-8 text-primary flex-shrink-0 mt-1" />
+                    <Trophy className="h-6 w-6 md:h-8 md:w-8 text-yellow-500 flex-shrink-0 mt-1" />
                     <div>
                       <h2 className="text-xl md:text-2xl font-semibold">{achievement.title}</h2>
                       <p className="text-xs md:text-sm text-muted-foreground mt-1">
@@ -172,7 +204,7 @@ export default function AchievementsPage() {
                         <CarouselItem key={imageIndex} className="no-animation">
                           <div 
                             className="relative w-full h-[180px] sm:h-[250px] md:h-[300px] flex items-center justify-center overflow-hidden bg-transparent cursor-pointer no-animation" 
-                            onClick={() => setOpenImage(image)}
+                            onClick={() => handleImageClick(image, achievement.images)}
                           >
                             <Image
                               src={image}
@@ -195,9 +227,21 @@ export default function AchievementsPage() {
                     />
                   </Carousel>
                   <Dialog open={!!openImage} onOpenChange={() => setOpenImage(null)}>
-                    <DialogContent className="max-w-4xl w-[95vw] md:w-[80vw] bg-transparent backdrop-blur-xl backdrop-saturate-150 border-none p-2 md:p-4 flex items-center justify-center">
+                    <DialogContent className="max-w-4xl w-[95vw] md:w-[80vw] bg-background/95 backdrop-blur-xl backdrop-saturate-150 border-none p-2 md:p-4 flex items-center justify-center">
+                      <VisuallyHidden asChild>
+                        <DialogTitle>Full size image view</DialogTitle>
+                      </VisuallyHidden>
                       {openImage && (
                         <div className="relative w-full h-[70vh] md:h-[80vh] flex items-center justify-center">
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 h-10 w-10 bg-background/80 hover:bg-background/90 shadow-none border-none"
+                            onClick={handlePrevImage}
+                            disabled={currentImages.indexOf(openImage) === 0}
+                          >
+                            <ChevronLeft className="h-6 w-6" />
+                          </Button>
                           <Image 
                             src={openImage} 
                             alt="Full Size" 
@@ -205,6 +249,15 @@ export default function AchievementsPage() {
                             className="object-contain"
                             priority
                           />
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            className="absolute right-2 top-1/2 -translate-y-1/2 z-10 h-10 w-10 bg-background/80 hover:bg-background/90 shadow-none border-none"
+                            onClick={handleNextImage}
+                            disabled={currentImages.indexOf(openImage) === currentImages.length - 1}
+                          >
+                            <ChevronRight className="h-6 w-6" />
+                          </Button>
                         </div>
                       )}
                     </DialogContent>
