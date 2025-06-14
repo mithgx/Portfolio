@@ -1,8 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { ChevronRight, Download, Github, Linkedin, Mail } from 'lucide-react';
+import { ChevronRight, Mail, Github, Linkedin } from 'lucide-react';
 import { fadeIn } from '@/lib/animations';
 import { useState } from 'react';
 import './home.css';
@@ -16,12 +15,11 @@ const userData = {
 
 export default function Home() {
   const [showCopied, setShowCopied] = useState(false);
-  const letters = userData.role.split("");
 
   const handleCopyEmail = async () => {
     await navigator.clipboard.writeText('mithileshg47@gmail.com');
     setShowCopied(true);
-    setTimeout(() => setShowCopied(false), 1000);
+    setTimeout(() => setShowCopied(false), 2000);
   };
 
   return (
@@ -32,63 +30,62 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="location"
           >
             Based In {userData.location.toUpperCase()}
           </motion.div>
 
           <motion.div
-            variants={fadeIn('up', 0.1)}
-            initial="hidden"
-            animate="show"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
             className="text-center"
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
               <span className="block md:inline">Hi, I'm</span>{' '}
-              <span className="text-primary block md:inline">Mithilesh</span>{' '}
-              <span className="block md:inline"></span>
+              <span className="gradient-text block md:inline">Mithilesh</span>
             </h1>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.2, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
             className="sub-title"
           >
             <p>{userData.role_desc}</p>
           </motion.div>
 
-          <div className="home-content-buttons">
-            <motion.a
+          <motion.div
+            className="home-content-buttons"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+          >
+            <a
               href="/projects"
               className="primary-button"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.2, delay: 0.3 }}
             >
               View Projects
               <ChevronRight className="btn-icon" />
-            </motion.a>
+            </a>
 
-            <motion.button
+            <button
               className="secondary-button"
               onClick={handleCopyEmail}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.2, delay: 0.4 }}
+              type="button"
             >
               Contact Me
               <Mail className="btn-icon" />
-            </motion.button>
-          </div>
+            </button>
+          </motion.div>
 
           <motion.div
             className="home-content-links"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.2, delay: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.9 }}
           >
             <a 
               href={SOCIAL_LINKS[0].url} 
@@ -96,7 +93,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="social-icon"
             >
-              <Github className="h-6 w-6" />
+              <Github className="h-5 w-5" />
             </a>
             <a 
               href={SOCIAL_LINKS[1].url} 
@@ -104,7 +101,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="social-icon"
             >
-              <Linkedin className="h-6 w-6" />
+              <Linkedin className="h-5 w-5" />
             </a>
           </motion.div>
         </div>

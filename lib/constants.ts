@@ -1,8 +1,8 @@
 export const SITE_CONFIG = {
   name: "Mithilesh Gopalakrishnan",
-  title: "Mithilesh Gopalakrishnan | Portfolio",
-  description: "Personal portfolio website of Mithilesh Gopalakrishnan",
-  url: "https://mithilesh.dev",
+  title: "Mithilesh - Portfolio",
+  description: "Portflio website of mith",
+  url: "https://mithx.vercel.app",
   email: "mithileshg47@gmail.com",
 };
 
@@ -26,11 +26,7 @@ export const SOCIAL_LINKS = [
     url: "https://www.linkedin.com/in/mithileshgopalakrishnan/", 
     icon: "Linkedin" 
   },
-  { 
-    name: "Twitter", 
-    url: "https://twitter.com/username", 
-    icon: "Twitter" 
-  },
+  
 ];
 
 export const SKILLS = [
@@ -48,7 +44,7 @@ export const EXPERIENCE = [
   {
     company: "Bahwan Cybertek",
     logo: "/bct.jpeg",
-    position: "Software Engineer",
+    position: "Software Engineer Intern",
     duration: "May-July 2025",
     description: [
       "Implemented session management in an AI-based application for World Bank, enabling support for multiple users per server (previously single-user only).",
@@ -56,7 +52,7 @@ export const EXPERIENCE = [
       "Resolved record mismatch issues in the Table Comparison module.",
       "Currently enhancing unstructured data extraction by fine-tuning models for improved accuracy on unstructured PDFs.",
     ],
-    technologies: ["Python", "Git", "Flask", "SQL"],
+    // technologies: ["Python", "Git", "Flask", "SQL"],
   },
 ];
 

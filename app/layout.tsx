@@ -4,6 +4,7 @@ import { Outfit } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import { NavTabs } from '@/components/nav-tabs';
 import { Analytics } from "@vercel/analytics/next"
+
 const outfit = Outfit({ 
   subsets: ['latin'],
   display: 'swap',
@@ -20,13 +21,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={outfit.className}>
+    <html lang="en" suppressHydrationWarning className="dark">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      </head>
+      <body className={`${outfit.className} min-h-screen overflow-x-hidden`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="dark"
+          forcedTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
+          storageKey="portfolio-theme"
         >
           <NavTabs />
           <div className="main-content">

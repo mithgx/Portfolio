@@ -4,7 +4,6 @@ import * as React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import { ThemeToggle } from '@/components/theme-toggle';
 import { Menu, X } from 'lucide-react';
 
 const tabs = [
@@ -12,7 +11,6 @@ const tabs = [
   { name: 'Projects', href: '/projects' },
   { name: 'Experience', href: '/experience' },
   { name: 'Achievements', href: '/achievements' },
-  { name: 'Resume', href: '/resume' },
   { name: 'Contact', href: '/contact' },
 ];
 
@@ -24,44 +22,51 @@ export function NavTabs() {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[9999] border-b bg-background/80 backdrop-blur-lg backdrop-saturate-200">
+    <header className="fixed top-0 left-0 right-0 z-[9999] border-b border-border/50 bg-background/80 backdrop-blur-xl backdrop-saturate-150">
       <div className="container mx-auto px-4 max-w-screen-xl">
-        <nav className="flex h-16 items-center justify-between">
+        <nav className="flex h-20 items-center justify-between">
           <div className="flex-1 flex justify-center sm:justify-center">
             <div className="sm:hidden absolute left-4">
-              <button onClick={toggleMenu} className="text-foreground focus:outline-none">
+              <button 
+                onClick={toggleMenu} 
+                className="text-foreground focus:outline-none p-2 rounded-lg hover:bg-accent transition-colors"
+              >
                 {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
             </div>
-            <div className="hidden sm:flex items-center space-x-8">
+            <div className="hidden sm:flex items-center space-x-2">
               {tabs.map((tab) => (
                 <Link
                   key={tab.href}
                   href={tab.href}
                   className={cn(
-                    'text-base font-medium transition-colors hover:text-primary',
-                    pathname === tab.href ? 'text-foreground' : 'text-foreground/60'
+                    'relative px-6 py-3 text-base font-medium transition-all duration-300 rounded-lg hover:bg-accent/50',
+                    pathname === tab.href 
+                      ? 'text-foreground bg-accent' 
+                      : 'text-muted-foreground hover:text-foreground'
                   )}
                 >
                   {tab.name}
+                  {pathname === tab.href && (
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-primary rounded-full" />
+                  )}
                 </Link>
               ))}
             </div>
           </div>
-          <div className="absolute right-4 sm:static flex items-center">
-            <ThemeToggle />
-          </div>
         </nav>
         {isOpen && (
-          <div className="sm:hidden mt-2 space-y-2 text-center">
+          <div className="sm:hidden mt-2 pb-4 space-y-2 text-center border-t border-border/50 pt-4">
             {tabs.map((tab) => (
               <Link
                 key={tab.href}
                 href={tab.href}
                 onClick={closeMenu}
                 className={cn(
-                  'block text-sm font-medium px-2 py-1 rounded hover:bg-accent hover:text-accent-foreground',
-                  pathname === tab.href ? 'text-foreground' : 'text-foreground/60'
+                  'block text-base font-medium px-6 py-4 rounded-lg transition-all duration-300 mx-4',
+                  pathname === tab.href 
+                    ? 'text-foreground bg-accent' 
+                    : 'text-muted-foreground hover:text-foreground hover:bg-accent/50'
                 )}
               >
                 {tab.name}
