@@ -52,7 +52,7 @@ export const EXPERIENCE = [
       "Resolved record mismatch issues in the Table Comparison module.",
       "Currently enhancing unstructured data extraction by fine-tuning models for improved accuracy on unstructured PDFs.",
     ],
-    // technologies: ["Python", "Git", "Flask", "SQL"],
+    technologies: ["Python", "Git", "Flask", "SQL"],
   },
 ];
 
