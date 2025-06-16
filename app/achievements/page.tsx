@@ -262,9 +262,9 @@ export default function AchievementsPage() {
           ))}
         </div>
 
-        {/* Quick Stats */}
+        {/* Stats Section */}
         <motion.div
-          variants={fadeIn('up', 0.4)}
+          variants={fadeIn('up', 0.6)}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
