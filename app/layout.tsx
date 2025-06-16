@@ -11,7 +11,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: 'Mithilesh's Portfolio',
+  title: "Mithilesh's Portfolio",
   description: 'Portfolio website showcasing my work and experience',
   verification: {
     google: 'googlefc7938d64e1a124e',
