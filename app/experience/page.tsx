@@ -10,41 +10,41 @@ import { Briefcase, GraduationCap, Calendar, MapPin } from "lucide-react";
 
 export default function ExperiencePage() {
   return (
-    <main className="experience-page min-h-screen bg-background py-16">
-      <div className="container px-4 mx-auto max-w-6xl">
+    <main className="experience-page min-h-screen bg-background py-12">
+      <div className="container px-4 mx-auto max-w-4xl">
         <motion.div
           variants={fadeIn("up", 0.2)}
           initial="hidden"
           animate="show"
-          className="text-center mb-12"
+          className="text-center mb-8"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-3">
-            <Briefcase className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium mb-2">
+            <Briefcase className="w-3 h-3" />
             Career Journey
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">
+          <h1 className="text-2xl md:text-3xl font-bold mb-3">
             Experience & <span className="gradient-text">Education</span>
           </h1>
-          <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm text-muted-foreground max-w-xl mx-auto">
             My professional journey and academic background, showcasing growth, 
             learning, and contributions across various domains.
           </p>
         </motion.div>
 
         <Tabs defaultValue="experience" className="max-w-5xl mx-auto">
-          <TabsList className="mb-8 flex justify-center bg-muted/50 p-1 rounded-xl">
+          <TabsList className="mb-6 flex justify-center bg-muted/50 p-1 rounded-lg">
             <TabsTrigger 
               value="experience" 
-              className="flex items-center gap-2 px-4 py-2 rounded-lg data-[state=active]:bg-background data-[state=active]:shadow-sm"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-md data-[state=active]:bg-background data-[state=active]:shadow-sm text-sm"
             >
-              <Briefcase className="w-3.5 h-3.5" />
+              <Briefcase className="w-3 h-3" />
               Professional Experience
             </TabsTrigger>
             <TabsTrigger 
               value="education"
-              className="flex items-center gap-2 px-4 py-2 rounded-lg data-[state=active]:bg-background data-[state=active]:shadow-sm"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-md data-[state=active]:bg-background data-[state=active]:shadow-sm text-sm"
             >
-              <GraduationCap className="w-3.5 h-3.5" />
+              <GraduationCap className="w-3 h-3" />
               Education
             </TabsTrigger>
           </TabsList>
@@ -62,7 +62,7 @@ export default function ExperiencePage() {
                 >
                   <div className="flex flex-col md:flex-row items-start gap-6">
                     <div className="flex-shrink-0">
-                      <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-white border shadow-sm">
+                      <div className="relative w-12 h-12 rounded-lg overflow-hidden bg-white border shadow-sm">
                         <Image
                           src={"/bct.jpeg"}
                           alt={job.company + " logo"}
@@ -74,7 +74,7 @@ export default function ExperiencePage() {
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
                         <div>
-                          <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                          <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors">
                             {job.position}
                           </h3>
                           <p className="text-primary font-medium">{job.company}</p>
@@ -85,11 +85,11 @@ export default function ExperiencePage() {
                         </div>
                       </div>
                       
-                      <div className="space-y-3 mb-4">
+                      <div className="space-y-2 mb-3">
                         {job.description.map((point, i) => (
-                          <div key={i} className="flex items-start gap-3">
-                            <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                            <p className="text-muted-foreground leading-relaxed">{point}</p>
+                          <div key={i} className="flex items-start gap-2">
+                            <div className="w-1 h-1 rounded-full bg-primary mt-1.5 flex-shrink-0" />
+                            <p className="text-sm text-muted-foreground leading-relaxed">{point}</p>
                           </div>
                         ))}
                       </div>
@@ -127,7 +127,7 @@ export default function ExperiencePage() {
                 >
                   <div className="flex flex-col md:flex-row items-start gap-6">
                     <div className="flex-shrink-0">
-                      <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-white border shadow-sm">
+                      <div className="relative w-12 h-12 rounded-lg overflow-hidden bg-white border shadow-sm">
                         <Image
                           src={edu.logo}
                           alt={edu.institution + " logo"}
@@ -139,7 +139,7 @@ export default function ExperiencePage() {
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
                         <div>
-                          <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                          <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors">
                             {edu.institution}
                           </h3>
                           <p className="text-primary font-medium">{edu.degree}</p>
@@ -169,8 +169,8 @@ export default function ExperiencePage() {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <h2 className="text-xl font-semibold mb-6">Core Technologies</h2>
-          <div className="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto">
+          <h2 className="text-lg font-semibold mb-4">Core Technologies</h2>
+          <div className="flex flex-wrap justify-center gap-1.5 max-w-3xl mx-auto">
             {[
               'Python', 
               // 'Machine Learning', 'AI', 'Data Analysis',
