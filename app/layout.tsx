@@ -11,8 +11,11 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: 'Mithilesh Portfolio',
+  title: 'Mithilesh's Portfolio',
   description: 'Portfolio website showcasing my work and experience',
+  verification: {
+    google: 'googlefc7938d64e1a124e',
+  },
 };
 
 export default function RootLayout({
