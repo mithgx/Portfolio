@@ -10,7 +10,7 @@ import { Briefcase, GraduationCap, Calendar, MapPin } from "lucide-react";
 
 export default function ExperiencePage() {
   return (
-    <main className="experience-page min-h-screen bg-background py-12">
+    <main className="experience-page min-h-screen bg-background py-12 pt-24">
       <div className="container px-4 mx-auto max-w-4xl">
         <motion.div
           variants={fadeIn("up", 0.2)}

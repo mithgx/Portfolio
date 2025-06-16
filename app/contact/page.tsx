@@ -17,22 +17,22 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen bg-background py-20">
-      <div className="container px-4 mx-auto">
+    <main className="min-h-screen bg-background py-12 pt-24">
+      <div className="container px-4 mx-auto max-w-4xl">
         <motion.div
           variants={fadeIn('up', 0.2)}
           initial="hidden"
           animate="show"
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            <Mail className="w-4 h-4" />
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium mb-2">
+            <Mail className="w-3 h-3" />
             Let's Connect
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+          <h1 className="text-2xl md:text-3xl font-bold mb-3">
             Get In <span className="gradient-text">Touch</span>
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm text-muted-foreground max-w-xl mx-auto">
             Feel free to reach out for collaborations, opportunities, or just a friendly hello. 
             I'm always excited to connect with fellow developers and innovators.
           </p>

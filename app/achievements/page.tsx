@@ -165,22 +165,22 @@ export default function AchievementsPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-background py-8 md:py-20 overflow-hidden pt-20 md:pt-27">
-      <div className="container mx-auto px-4 md:px-6">
+    <main className="min-h-screen bg-background py-12 pt-24">
+      <div className="container mx-auto px-4 max-w-4xl">
         <motion.div
           variants={fadeIn('up', 0.2)}
           initial="hidden"
           animate="show"
-          className="text-center mb-8 md:mb-16"
+          className="text-center mb-8"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            <Trophy className="w-4 h-4" />
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium mb-2">
+            <Trophy className="w-3 h-3" />
             Competitive Achievements
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+          <h1 className="text-2xl md:text-3xl font-bold mb-3">
             Hackathon <span className="gradient-text">Achievements</span>
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm text-muted-foreground max-w-xl mx-auto">
             Showcasing innovation and problem-solving through competitive coding, 
             with victories and recognitions across multiple prestigious hackathons.
           </p>
