@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "Mithilesh's Portfolio",
   description: 'Portfolio website showcasing my work and experience',
   verification: {
-    google: 'googlefc7938d64e1a124e',
+    google: 'CkIut9YGzcQN0hhQFD9wEud5BUUkJv5NKmAxi3JCERQ',
   },
 };
 
