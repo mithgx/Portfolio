@@ -4,6 +4,7 @@ import { Outfit } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import { NavTabs } from '@/components/nav-tabs';
 import { Analytics } from "@vercel/analytics/next"
+import Script from 'next/script';
 
 const outfit = Outfit({ 
   subsets: ['latin'],
@@ -11,40 +12,65 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Mithilesh's Portfolio",
-  description: 'Portfolio website showcasing my work and experience',
+  title: "Mithilesh Gopalakrishnan | Portfolio",
+  description: "Official portfolio of Mithilesh Gopalakrishnan - engineering student, developer, and tech enthusiast.",
   verification: {
     google: 'CkIut9YGzcQN0hhQFD9wEud5BUUkJv5NKmAxi3JCERQ',
+  },
+  openGraph: {
+    title: "Mithilesh Gopalakrishnan | Portfolio",
+    description: "Official portfolio of Mithilesh Gopalakrishnan - engineering student, developer, and tech enthusiast.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mithilesh Gopalakrishnan | Portfolio",
+    description: "Official portfolio of Mithilesh Gopalakrishnan - engineering student, developer, and tech enthusiast.",
   },
 };
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className="dark">
+    <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <Script
+          id="schema-person"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Mithilesh Gopalakrishnan",
+              "url": "https://mithilesh.vercel.app",
+              "sameAs": [
+                "https://github.com/mithgx",
+                "https://linkedin.com/in/mithileshgopalakrishnan"
+              ],
+              "jobTitle": "Engineering Student",
+              "description": "Engineering student, developer, and tech enthusiast passionate about building innovative solutions.",
+              "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "Vellore Institute of Technology"
+              }
+            })
+          }}
+        />
       </head>
-      <body className={`${outfit.className} min-h-screen overflow-x-hidden`}>
+      <body className={outfit.className}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
-          forcedTheme="dark"
-          enableSystem={false}
+          defaultTheme="system"
+          enableSystem
           disableTransitionOnChange
-          storageKey="portfolio-theme"
         >
           <NavTabs />
-          <div className="main-content">
-            <div className="grid-background min-h-screen bg-background">
-              {children}
-            </div>
-          </div>
+          {children}
+          <Analytics />
         </ThemeProvider>
-        <Analytics />
       </body>
     </html>
   );
