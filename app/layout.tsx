@@ -12,19 +12,19 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Mithilesh Gopalakrishnan | Portfolio",
+  title: "Mithilesh Gopalakrishnan S | Portfolio",
   description: "Official portfolio of Mithilesh Gopalakrishnan - engineering student, developer, and tech enthusiast.",
   verification: {
     google: 'CkIut9YGzcQN0hhQFD9wEud5BUUkJv5NKmAxi3JCERQ',
   },
   openGraph: {
-    title: "Mithilesh Gopalakrishnan | Portfolio",
+    title: "Mithilesh Gopalakrishnan S | Portfolio",
     description: "Official portfolio of Mithilesh Gopalakrishnan - engineering student, developer, and tech enthusiast.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mithilesh Gopalakrishnan | Portfolio",
+    title: "Mithilesh Gopalakrishnan S | Portfolio",
     description: "Official portfolio of Mithilesh Gopalakrishnan - engineering student, developer, and tech enthusiast.",
   },
 };
@@ -44,8 +44,8 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              "name": "Mithilesh Gopalakrishnan",
-              "url": "https://mithilesh.vercel.app",
+              "name": "Mithilesh Gopalakrishnan S",
+              "url": "https://mithx.vercel.app",
               "sameAs": [
                 "https://github.com/mithgx",
                 "https://linkedin.com/in/mithileshgopalakrishnan"
