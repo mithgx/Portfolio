@@ -2,58 +2,104 @@
 
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Github, Code2, ChevronRight } from 'lucide-react';
+import { Github, Code2, ChevronRight, ChevronLeft, Fullscreen } from 'lucide-react';
 import { fadeIn } from '@/lib/animations';
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel';
+import Image from 'next/image';
+import { useState, useEffect } from 'react';
+import type { CarouselApi } from '@/components/ui/carousel';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 
 export default function ProjectsPage() {
   const projects = [
     {
       title: 'AI-Powered Analytics Dashboard',
       description: 'A comprehensive analytics platform with real-time data visualization, machine learning insights, and predictive analytics capabilities.',
-      image: '/project1.jpg',
+      images: ['/project1.jpg', '/project1b.jpg'],
       tags: ['Next.js', 'TypeScript', 'Python', 'TensorFlow', 'PostgreSQL'],
       githubLink: 'https://github.com/yourusername/project1',
+    }, 
+    {
+      title: 'DermAI  ',
+      description: ' DermAI is an AI-powered project for classifying skin cancer from images, providing users with preliminary diagnostics, cancer-related information via a medical chatbot, and recommendations for nearby hospitals  ',
+      images: ['/DermAI/6.png', '/DermAI/1.png', '/DermAI/2.png', '/DermAI/3.png', '/DermAI/4.png', '/DermAI/5.png'],
+      tags: ['Python', 'Streamlit', 'TensorFlow', 'NumPy'],
+      githubLink: 'https://github.com/mithgx/DermAI',
     },
     {
       title: 'Real-time Collaboration Suite',
       description: 'A modern collaboration platform with live document editing, video conferencing, and team management features.',
-      image: '/project2.jpg',
+      images: ['/project2.jpg', '/project2b.jpg'],
       tags: ['React', 'Socket.io', 'Node.js', 'MongoDB', 'WebRTC'],
       githubLink: 'https://github.com/yourusername/project2',
     },
     {
       title: 'E-commerce Platform',
       description: 'A full-stack e-commerce solution with payment integration, inventory management, and advanced analytics.',
-      image: '/project3.jpg',
+      images: ['/project3.jpg', '/project3b.jpg'],
       tags: ['Next.js', 'Stripe', 'Prisma', 'PostgreSQL', 'Redis'],
       githubLink: 'https://github.com/yourusername/project3',
     },
-    {
-      title: 'IoT Monitoring System',
-      description: 'A comprehensive IoT dashboard for monitoring and controlling smart devices with real-time alerts and automation.',
-      image: '/project4.jpg',
-      tags: ['React', 'MQTT', 'InfluxDB', 'Grafana', 'Docker'],
-      githubLink: 'https://github.com/yourusername/project4',
-    },
+   
     {
       title: 'Machine Learning Pipeline',
       description: 'An automated ML pipeline for data preprocessing, model training, and deployment with monitoring capabilities.',
-      image: '/project5.jpg',
+      images: ['/project5.jpg', '/project5b.jpg'],
       tags: ['Python', 'Scikit-learn', 'Docker', 'Kubernetes', 'MLflow'],
       githubLink: 'https://github.com/yourusername/project5',
     },
     {
       title: 'Blockchain Voting System',
       description: 'A secure and transparent voting system built on blockchain technology with smart contracts and decentralized architecture.',
-      image: '/project6.jpg',
+      images: ['/project6.jpg', '/project6b.jpg'],
       tags: ['Solidity', 'Web3.js', 'React', 'Ethereum', 'IPFS'],
       githubLink: 'https://github.com/yourusername/project6',
     },
   ];
 
+  const [api, setApi] = useState<CarouselApi>();
+  const [openImage, setOpenImage] = useState<string | null>(null);
+  const [currentImages, setCurrentImages] = useState<string[]>([]);
+  const [zoomIndex, setZoomIndex] = useState(0);
+
+  // Keyboard navigation for zoomed carousel
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!openImage) return;
+      if (e.key === 'Escape') {
+        setOpenImage(null);
+      } else if (e.key === 'ArrowLeft') {
+        handlePrevImage();
+      } else if (e.key === 'ArrowRight') {
+        handleNextImage();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [openImage, zoomIndex, currentImages]);
+
+  const handleImageClick = (image: string, images: string[], idx: number) => {
+    setCurrentImages(images);
+    setOpenImage(image);
+    setZoomIndex(idx);
+  };
+  const handlePrevImage = () => {
+    if (zoomIndex > 0) {
+      setZoomIndex(zoomIndex - 1);
+      setOpenImage(currentImages[zoomIndex - 1]);
+    }
+  };
+  const handleNextImage = () => {
+    if (zoomIndex < currentImages.length - 1) {
+      setZoomIndex(zoomIndex + 1);
+      setOpenImage(currentImages[zoomIndex + 1]);
+    }
+  };
+
   return (
     <main className="min-h-screen bg-background py-12 pt-24">
-      <div className="container px-4 mx-auto max-w-4xl">
+      <div className="px-4 md:px-12 lg:px-24 mx-auto w-full">
         <motion.div
           variants={fadeIn('up', 0.2)}
           initial="hidden"
@@ -79,7 +125,7 @@ export default function ProjectsPage() {
           initial="hidden"
           animate="show"
         >
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 min-h-[60vh]">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
@@ -87,19 +133,54 @@ export default function ProjectsPage() {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
-                className="group card-enhanced p-0 overflow-hidden"
+                className="group card-enhanced p-0 overflow-hidden rounded-2xl shadow-2xl bg-white dark:bg-zinc-900 flex flex-col h-full"
+                style={{ minHeight: '520px' }}
               >
-                <div className="aspect-video bg-gradient-to-br from-muted to-muted/50 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                <div className="relative rounded-xl overflow-hidden bg-muted/30 w-full h-80">
+                  <Carousel 
+                    className="relative w-full h-full"
+                    setApi={setApi}
+                    opts={{ loop: true }}
+                  >
+                    <CarouselContent className="no-animation">
+                      {project.images.map((img, i) => (
+                        <CarouselItem key={i} className="no-animation">
+                          <div className="relative w-full h-80 flex items-center justify-center overflow-hidden bg-transparent group/image">
+                            <Image
+                              src={img}
+                              alt={project.title + ' image ' + (i+1)}
+                              fill
+                              className="object-contain transition-transform duration-300 group-hover/image:scale-105"
+                              priority={i === 0}
+                            />
+                            <button
+                              type="button"
+                              className="absolute top-3 right-3 z-20 bg-background/80 hover:bg-background/90 rounded-full p-2 shadow-lg border opacity-80 hover:opacity-100 transition"
+                              onClick={() => handleImageClick(img, project.images, i)}
+                              aria-label="View fullscreen"
+                            >
+                              <Fullscreen className="w-5 h-5" />
+                            </button>
+                          </div>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <CarouselPrevious
+                      className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 p-0 h-8 w-8 md:h-10 md:w-10 bg-background/90 hover:bg-background shadow-lg border"
+                    />
+                    <CarouselNext
+                      className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 p-0 h-8 w-8 md:h-10 md:w-10 bg-background/90 hover:bg-background shadow-lg border"
+                    />
+                  </Carousel>
                 </div>
-                <div className="p-4">
-                  <h3 className="text-base font-semibold mb-2 group-hover:text-primary transition-colors">
+                <div className="p-8 flex-1 flex flex-col">
+                  <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground mb-3 leading-relaxed line-clamp-2">
+                  <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-1 mb-3">
+                  <div className="flex flex-wrap gap-3 mb-6">
                     {project.tags.slice(0, 3).map((tag) => (
                       <span
                         key={tag}
@@ -114,9 +195,9 @@ export default function ProjectsPage() {
                       </span>
                     )}
                   </div>
-                  <Button variant="outline" size="sm" asChild className="w-full">
+                  <Button variant="outline" size="lg" asChild className="w-full mt-auto">
                     <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
-                      <Github className="mr-2 h-3 w-3" />
+                      <Github className="mr-2 h-4 w-4" />
                       View Code
                     </a>
                   </Button>
@@ -132,19 +213,55 @@ export default function ProjectsPage() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="text-center mt-12 p-6 rounded-xl bg-gradient-to-r from-primary/5 to-secondary/5 border border-border/50"
+          className="text-center mt-16 p-8 rounded-xl bg-gradient-to-r from-primary/5 to-secondary/5 border border-border/50 max-w-2xl mx-auto"
         >
-          <h3 className="text-lg font-semibold mb-3">Interested in collaborating?</h3>
-          <p className="text-sm text-muted-foreground mb-4 max-w-md mx-auto">
+          <h3 className="text-2xl font-bold mb-4">Interested in collaborating?</h3>
+          <p className="text-lg text-muted-foreground mb-6 max-w-xl mx-auto">
             I'm always open to discussing new projects and opportunities. Let's build something amazing together.
           </p>
-          <Button asChild className="btn-primary">
+          <Button asChild className="btn-primary text-lg px-8 py-4">
             <a href="/contact">
               Get In Touch
-              <ChevronRight className="ml-2 h-3 w-3" />
+              <ChevronRight className="ml-2 h-4 w-4" />
             </a>
           </Button>
         </motion.div>
+
+        {/* Image Zoom Dialog */}
+        <Dialog open={!!openImage} onOpenChange={() => setOpenImage(null)}>
+          <DialogContent className="max-w-4xl w-[95vw] md:w-[80vw] bg-background/95 backdrop-blur-xl backdrop-saturate-150 border-none p-2 md:p-4 flex items-center justify-center">
+            <VisuallyHidden asChild>
+              <DialogTitle>Full size image view</DialogTitle>
+            </VisuallyHidden>
+            {openImage && (
+              <div className="relative w-full h-[70vh] md:h-[80vh] flex items-center justify-center">
+                <button
+                  type="button"
+                  className="absolute left-2 top-1/2 -translate-y-1/2 z-10 h-10 w-10 bg-background/80 hover:bg-background/90 shadow-lg border flex items-center justify-center"
+                  onClick={handlePrevImage}
+                  disabled={zoomIndex === 0}
+                >
+                  <ChevronLeft className="h-6 w-6" />
+                </button>
+                <Image
+                  src={currentImages[zoomIndex]}
+                  alt="Full Size"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+                <button
+                  type="button"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 z-10 h-10 w-10 bg-background/80 hover:bg-background/90 shadow-lg border flex items-center justify-center"
+                  onClick={handleNextImage}
+                  disabled={zoomIndex === currentImages.length - 1}
+                >
+                  <ChevronRight className="h-6 w-6" />
+                </button>
+              </div>
+            )}
+          </DialogContent>
+        </Dialog>
       </div>
     </main>
   );

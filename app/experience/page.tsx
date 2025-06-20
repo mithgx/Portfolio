@@ -173,8 +173,7 @@ export default function ExperiencePage() {
           <div className="flex flex-wrap justify-center gap-1.5 max-w-3xl mx-auto">
             {[
               'Python', 
-              // 'Machine Learning', 'AI', 'Data Analysis',
-              // 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Node.js',
+            
               'Streamlit', 'Pandas','Pytorch', 'Tensorflow','Numpy',
               'Flask', 'SQL', 'FireBase', 'Git','AWS','Vercel'
             ].map((skill, index) => (

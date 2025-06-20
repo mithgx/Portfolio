@@ -56,20 +56,7 @@ export const EXPERIENCE = [
   },
 ];
 
-  // {
-  //   company: "Previous Company",
-  //   position: "Frontend Developer",
-  //   duration: "Mar 2020 - Dec 2021",
-  //   description: "Developed and maintained multiple web applications using React and TypeScript. Implemented responsive designs and ensured cross-browser compatibility.",
-  //   technologies: ["React", "JavaScript", "CSS", "REST API"],
-  // },
-  // {
-  //   company: "First Company",
-  //   position: "Junior Developer",
-  //   duration: "Jun 2018 - Feb 2020",
-  //   description: "Assisted in the development of web applications and gained experience in modern frontend technologies.",
-  //   technologies: ["HTML", "CSS", "JavaScript", "jQuery"],
-  // },
+
 
 
 export const PROJECTS = [
@@ -94,29 +81,29 @@ export const PROJECTS = [
     description: "A data visualization dashboard that transforms complex datasets into intuitive, interactive visualizations.",
     image: "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg",
     tags: ["D3.js", "React", "TypeScript", "REST API"],
-    liveUrl: "https://project-three.com",
-    githubUrl: "https://github.com/username/project-three",
+    liveUrl: "",
+    githubUrl: "",
   },
 ];
 
 export const ACHIEVEMENTS = [
   {
-    title: "Award Title",
-    organization: "Awarding Organization",
-    year: "2023",
-    description: "Recognized for outstanding contributions to the field of web development.",
+    title: "",
+    organization: "",
+    year: "",
+    description: ".",
   },
   {
-    title: "Certification",
-    organization: "Certification Authority",
-    year: "2022",
-    description: "Completed advanced certification in modern web technologies and best practices.",
+    title: "",
+    organization: "",
+    year: "",
+    description: ".",
   },
   {
-    title: "Conference Speaker",
-    organization: "Tech Conference",
-    year: "2021",
-    description: "Invited to speak about innovative approaches to frontend architecture.",
+    title: "",
+    organization: "",
+    year: "",
+    description: "",
   },
 ];
 

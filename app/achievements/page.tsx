@@ -207,8 +207,7 @@ export default function AchievementsPage() {
                             {achievement.title}
                           </h2>
                         </div>
-                        <p className="text-sm md:text-base text-muted-foreground flex items-center gap-2">
-                          <Star className="w-4 h-4" />
+                        <p className="text-sm md:text-base text-muted-foreground">
                           {achievement.venue}
                         </p>
                       </div>
