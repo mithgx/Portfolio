@@ -17,7 +17,7 @@ export default function Home() {
   const [showCopied, setShowCopied] = useState(false);
 
   const handleCopyEmail = async () => {
-    await navigator.clipboard.writeText('mithileshg47@gmail.com');
+    await navigator.clipboard.writeText('leshg47@gmail.com');
     setShowCopied(true);
     setTimeout(() => setShowCopied(false), 2000);
   };
