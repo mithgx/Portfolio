@@ -71,14 +71,13 @@ export default function Home() {
               <ChevronRight className="btn-icon" />
             </a>
 
-            <button
+            <a
+              href="/contact"
               className="secondary-button"
-              onClick={handleCopyEmail}
-              type="button"
             >
               Contact Me
               <Mail className="btn-icon" />
-            </button>
+            </a>
           </motion.div>
 
           <motion.div
@@ -106,11 +105,6 @@ export default function Home() {
           </motion.div>
         </div>
       </div>
-      {showCopied && (
-        <div className="copied-toast">
-          Email copied to clipboard!
-        </div>
-      )}
     </main>
   );
 }

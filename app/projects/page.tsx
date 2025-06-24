@@ -23,7 +23,7 @@ export default function ProjectsPage() {
     {
       title: 'DermAI  ',
       description: ' DermAI is an AI-powered project for classifying skin cancer from images, providing users with preliminary diagnostics, cancer-related information via a medical chatbot, and recommendations for nearby hospitals  ',
-      images: ['/DermAI/6.png', '/DermAI/1.png', '/DermAI/2.png', '/DermAI/3.png', '/DermAI/4.png', '/DermAI/5.png'],
+      images: ['Projects/DermAI/6.png',  'Projects/DermAI/3.png', 'Projects/DermAI/4.png', 'Projects/DermAI/5.png','Projects/DermAI/1.png', 'Projects/DermAI/2.png'],
       tags: ['Python', 'Streamlit', 'TensorFlow', 'NumPy'],
       githubLink: 'https://github.com/mithgx/DermAI',
     },
@@ -35,11 +35,11 @@ export default function ProjectsPage() {
       githubLink: 'https://github.com/yourusername/project2',
     },
     {
-      title: 'E-commerce Platform',
-      description: 'A full-stack e-commerce solution with payment integration, inventory management, and advanced analytics.',
-      images: ['/project3.jpg', '/project3b.jpg'],
-      tags: ['Next.js', 'Stripe', 'Prisma', 'PostgreSQL', 'Redis'],
-      githubLink: 'https://github.com/yourusername/project3',
+      title: 'Location Validator',
+      description: 'Location Validator is a lightning-fast, offline tool for validating and cross-checking over a million location records (area, pincode, lat/long) in seconds. It ensures data privacy by processing everything locally—no internet or third-party services required—making it ideal for secure, large-scale location data validation.',
+      images: ['Projects/LocationValidator/0.5.png', 'Projects/LocationValidator/1.png','Projects/LocationValidator/1.5.png','Projects/LocationValidator/2.png','Projects/LocationValidator/2.5.png','Projects/LocationValidator/5.png','Projects/LocationValidator/6.png','Projects/LocationValidator/7.png'],
+      tags: ['Python', 'Flask', 'Pandas'],
+      githubLink: 'https://github.com/mithgx/Location-Validator',
     },
    
     {
@@ -229,7 +229,7 @@ export default function ProjectsPage() {
 
         {/* Image Zoom Dialog */}
         <Dialog open={!!openImage} onOpenChange={() => setOpenImage(null)}>
-          <DialogContent className="max-w-4xl w-[95vw] md:w-[80vw] bg-background/95 backdrop-blur-xl backdrop-saturate-150 border-none p-2 md:p-4 flex items-center justify-center">
+          <DialogContent className="fixed left-1/2 top-20 z-[10000] max-w-4xl w-[95vw] md:w-[80vw] bg-background/95 backdrop-blur-xl backdrop-saturate-150 border-none p-2 md:p-4 flex items-center justify-center" style={{transform: 'translateX(-50%)'}}>
             <VisuallyHidden asChild>
               <DialogTitle>Full size image view</DialogTitle>
             </VisuallyHidden>
