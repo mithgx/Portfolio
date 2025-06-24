@@ -175,7 +175,7 @@ export default function ExperiencePage() {
               'Python', 
             
               'Streamlit', 'Pandas','Pytorch', 'Tensorflow','Numpy',
-              'Flask', 'SQL', 'FireBase', 'Git','AWS','Vercel'
+              'Flask', 'SQL', 'FireBase', 'Git','AWS','Plotly','Java'
             ].map((skill, index) => (
               <motion.div
                 key={skill}

@@ -18,13 +18,13 @@ export default function ProjectsPage() {
       description: 'A comprehensive analytics platform with real-time data visualization, machine learning insights, and predictive analytics capabilities.',
       images: ['/project1.jpg', '/project1b.jpg'],
       tags: ['Next.js', 'TypeScript', 'Python', 'TensorFlow', 'PostgreSQL'],
-      githubLink: 'https://github.com/yourusername/project1',
+      githubLink: 'https://github.com/mithgx/project1',
     }, 
     {
       title: 'DermAI  ',
       description: ' DermAI is an AI-powered project for classifying skin cancer from images, providing users with preliminary diagnostics, cancer-related information via a medical chatbot, and recommendations for nearby hospitals  ',
       images: ['Projects/DermAI/6.png',  'Projects/DermAI/3.png', 'Projects/DermAI/4.png', 'Projects/DermAI/5.png','Projects/DermAI/1.png', 'Projects/DermAI/2.png'],
-      tags: ['Python', 'Streamlit', 'TensorFlow', 'NumPy'],
+      tags: ['Python', 'Streamlit', 'TensorFlow', 'NumPy','Folium','Firebase'],
       githubLink: 'https://github.com/mithgx/DermAI',
     },
     {
@@ -32,7 +32,7 @@ export default function ProjectsPage() {
       description: 'A modern collaboration platform with live document editing, video conferencing, and team management features.',
       images: ['/project2.jpg', '/project2b.jpg'],
       tags: ['React', 'Socket.io', 'Node.js', 'MongoDB', 'WebRTC'],
-      githubLink: 'https://github.com/yourusername/project2',
+      githubLink: 'https://github.com/mithgx/project2',
     },
     {
       title: 'Location Validator',
@@ -43,18 +43,18 @@ export default function ProjectsPage() {
     },
    
     {
-      title: 'Machine Learning Pipeline',
-      description: 'An automated ML pipeline for data preprocessing, model training, and deployment with monitoring capabilities.',
-      images: ['/project5.jpg', '/project5b.jpg'],
-      tags: ['Python', 'Scikit-learn', 'Docker', 'Kubernetes', 'MLflow'],
-      githubLink: 'https://github.com/yourusername/project5',
+      title: 'IntruderMonitor',
+      description: 'A real-time face detection system leveraging ESP32-CAM and quantized TinyML (TFLite) for efficient on-device inference and instant alerting. Integrates with a Python Flask backend and Telegram API for live monitoring, dashboard visualization, and remote notifications.',
+      images: ['Projects/IntruderMonitor/1.png','Projects/IntruderMonitor/3.png','Projects/IntruderMonitor/4.png',],
+      tags: ['Python', 'Embedded C', 'TFLite', 'OpenCV', 'MLflow'],
+      githubLink: 'https://github.com/mithgx/IntruderMonitor-TinyML',
     },
     {
       title: 'Blockchain Voting System',
       description: 'A secure and transparent voting system built on blockchain technology with smart contracts and decentralized architecture.',
       images: ['/project6.jpg', '/project6b.jpg'],
       tags: ['Solidity', 'Web3.js', 'React', 'Ethereum', 'IPFS'],
-      githubLink: 'https://github.com/yourusername/project6',
+      githubLink: 'https://github.com/mithgx/project6',
     },
   ];
 
@@ -181,7 +181,7 @@ export default function ProjectsPage() {
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-3 mb-6">
-                    {project.tags.slice(0, 3).map((tag) => (
+                    {project.tags.map((tag) => (
                       <span
                         key={tag}
                         className="px-2 py-0.5 bg-secondary text-secondary-foreground rounded-md text-xs"
@@ -189,11 +189,6 @@ export default function ProjectsPage() {
                         {tag}
                       </span>
                     ))}
-                    {project.tags.length > 3 && (
-                      <span className="px-2 py-0.5 bg-muted text-muted-foreground rounded-md text-xs">
-                        +{project.tags.length - 3}
-                      </span>
-                    )}
                   </div>
                   <Button variant="outline" size="lg" asChild className="w-full mt-auto">
                     <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
