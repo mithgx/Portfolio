@@ -21,18 +21,11 @@ export default function ProjectsPage() {
       githubLink: 'https://github.com/mithgx/project1',
     }, 
     {
-      title: 'DermAI  ',
-      description: ' DermAI is an AI-powered project for classifying skin cancer from images, providing users with preliminary diagnostics, cancer-related information via a medical chatbot, and recommendations for nearby hospitals  ',
-      images: ['Projects/DermAI/6.png',  'Projects/DermAI/3.png', 'Projects/DermAI/4.png', 'Projects/DermAI/5.png','Projects/DermAI/1.png', 'Projects/DermAI/2.png'],
-      tags: ['Python', 'Streamlit', 'TensorFlow', 'NumPy','Folium','Firebase'],
-      githubLink: 'https://github.com/mithgx/DermAI',
-    },
-    {
-      title: 'Real-time Collaboration Suite',
-      description: 'A modern collaboration platform with live document editing, video conferencing, and team management features.',
-      images: ['/project2.jpg', '/project2b.jpg'],
-      tags: ['React', 'Socket.io', 'Node.js', 'MongoDB', 'WebRTC'],
-      githubLink: 'https://github.com/mithgx/project2',
+      title: 'UnstructData',
+      description: 'A web application that transforms unstructured PDF documents into structured, machine-readable data using advanced AI models and traditional extraction techniques. It supports table detection, text extraction, and OCR for scanned documents, providing users with multiple extraction methods for complex and simple PDFs alike.',
+      images: ['/Projects/UnstructData/1.png', '/Projects/UnstructData/2.png','/Projects/UnstructData/3.png','/Projects/UnstructData/4.png','/Projects/UnstructData/5.png'],
+      tags: ['Pytorch', 'Transformers', 'OpenCV', 'HuggingFace'],
+      githubLink: 'https://github.com/mithgx/UnstructData',
     },
     {
       title: 'Location Validator',
@@ -41,13 +34,20 @@ export default function ProjectsPage() {
       tags: ['Python', 'Flask', 'Pandas'],
       githubLink: 'https://github.com/mithgx/Location-Validator',
     },
-   
+    
     {
       title: 'IntruderMonitor',
       description: 'A real-time face detection system leveraging ESP32-CAM and quantized TinyML (TFLite) for efficient on-device inference and instant alerting. Integrates with a Python Flask backend and Telegram API for live monitoring, dashboard visualization, and remote notifications.',
       images: ['Projects/IntruderMonitor/1.png','Projects/IntruderMonitor/3.png','Projects/IntruderMonitor/4.png',],
       tags: ['Python', 'Embedded C', 'TFLite', 'OpenCV', 'MLflow'],
       githubLink: 'https://github.com/mithgx/IntruderMonitor-TinyML',
+    },
+    {
+      title: 'DermAI  ',
+      description: ' DermAI is an AI-powered project for classifying skin cancer from images, providing users with preliminary diagnostics, cancer-related information via a medical chatbot, and recommendations for nearby hospitals  ',
+      images: ['Projects/DermAI/6.png',  'Projects/DermAI/3.png', 'Projects/DermAI/4.png', 'Projects/DermAI/5.png','Projects/DermAI/1.png', 'Projects/DermAI/2.png'],
+      tags: ['Python', 'Streamlit', 'TensorFlow', 'NumPy','Folium','Firebase'],
+      githubLink: 'https://github.com/mithgx/DermAI',
     },
     {
       title: 'Blockchain Voting System',
