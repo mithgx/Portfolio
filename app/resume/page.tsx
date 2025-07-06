@@ -8,7 +8,7 @@ import { motion } from 'framer-motion'
 import { fadeIn } from '@/lib/animations'
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
 
-const resumePath = '/resume.pdf'
+const resumePath = '/Mithilesh Resume.pdf'
 
 export default function ResumePage() {
   const [open, setOpen] = useState(false)

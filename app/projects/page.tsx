@@ -13,13 +13,14 @@ import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 
 export default function ProjectsPage() {
   const projects = [
-    {
-      title: 'AI-Powered Analytics Dashboard',
-      description: 'A comprehensive analytics platform with real-time data visualization, machine learning insights, and predictive analytics capabilities.',
-      images: ['/project1.jpg', '/project1b.jpg'],
-      tags: ['Next.js', 'TypeScript', 'Python', 'TensorFlow', 'PostgreSQL'],
-      githubLink: 'https://github.com/mithgx/project1',
-    }, 
+    // {
+    //   title: 'AI-Powered Analytics Dashboard',
+    //   description: 'A comprehensive analytics platform with real-time data visualization, machine learning insights, and predictive analytics capabilities.',
+    //   images: ['/project1.jpg', '/project1b.jpg'],
+    //   tags: ['Next.js', 'TypeScript', 'Python', 'TensorFlow', 'PostgreSQL'],
+    //   githubLink: 'https://github.com/mithgx/project1',
+    // }, 
+    
     {
       title: 'UnstructData',
       description: 'A web application that transforms unstructured PDF documents into structured, machine-readable data using advanced AI models and traditional extraction techniques. It supports table detection, text extraction, and OCR for scanned documents, providing users with multiple extraction methods for complex and simple PDFs alike.',
@@ -49,13 +50,13 @@ export default function ProjectsPage() {
       tags: ['Python', 'Streamlit', 'TensorFlow', 'NumPy','Folium','Firebase'],
       githubLink: 'https://github.com/mithgx/DermAI',
     },
-    {
-      title: 'Blockchain Voting System',
-      description: 'A secure and transparent voting system built on blockchain technology with smart contracts and decentralized architecture.',
-      images: ['/project6.jpg', '/project6b.jpg'],
-      tags: ['Solidity', 'Web3.js', 'React', 'Ethereum', 'IPFS'],
-      githubLink: 'https://github.com/mithgx/project6',
-    },
+    // {
+    //   title: 'Blockchain Voting System',
+    //   description: 'A secure and transparent voting system built on blockchain technology with smart contracts and decentralized architecture.',
+    //   images: ['/project6.jpg', '/project6b.jpg'],
+    //   tags: ['Solidity', 'Web3.js', 'React', 'Ethereum', 'IPFS'],
+    //   githubLink: 'https://github.com/mithgx/project6',
+    // },
   ];
 
   const [api, setApi] = useState<CarouselApi>();
@@ -98,7 +99,7 @@ export default function ProjectsPage() {
   };
 
   return (
-    <main className="min-h-screen bg-background py-12 pt-24">
+    <main className="min-h-screen bg-background py-12 pt-24 relative">
       <div className="px-4 md:px-12 lg:px-24 mx-auto w-full">
         <motion.div
           variants={fadeIn('up', 0.2)}
@@ -208,18 +209,33 @@ export default function ProjectsPage() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="text-center mt-16 p-8 rounded-xl bg-gradient-to-r from-primary/5 to-secondary/5 border border-border/50 max-w-2xl mx-auto"
+          className="flex flex-col gap-6 mt-16 p-8 rounded-xl bg-gradient-to-r from-primary/5 to-secondary/5 border border-border/50 max-w-2xl mx-auto"
         >
-          <h3 className="text-2xl font-bold mb-4">Interested in collaborating?</h3>
-          <p className="text-lg text-muted-foreground mb-6 max-w-xl mx-auto">
-            I'm always open to discussing new projects and opportunities. Let's build something amazing together.
-          </p>
-          <Button asChild className="btn-primary text-lg px-8 py-4">
-            <a href="/contact">
-              Get In Touch
-              <ChevronRight className="ml-2 h-4 w-4" />
-            </a>
-          </Button>
+          <div className="flex flex-row items-center justify-between w-full gap-4">
+            <h3 className="text-lg md:text-xl mb-0 font-normal whitespace-nowrap">View more projects</h3>
+            <Button
+              asChild
+              className="btn-primary text-lg px-8 py-4 flex items-center gap-2"
+            >
+              <a
+                href="https://github.com/mithgx?tab=repositories"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+                <Github className="ml-2 w-5 h-5" />
+              </a>
+            </Button>
+          </div>
+          <div className="flex flex-row items-center justify-between w-full gap-4">
+            <h3 className="text-lg md:text-xl mb-0 font-normal whitespace-nowrap">Interested in collaborating?</h3>
+            <Button asChild className="btn-primary text-lg px-8 py-4 flex items-center gap-2">
+              <a href="/contact">
+                Get In Touch
+                <ChevronRight className="ml-2 h-4 w-4" />
+              </a>
+            </Button>
+          </div>
         </motion.div>
 
         {/* Image Zoom Dialog */}
