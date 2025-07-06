@@ -69,7 +69,7 @@ export default function ContactPage() {
                 </button>
 
                 <a
-                  href="/resume.pdf"
+                  href="/Mithilesh Resume.pdf"
                   download
                   className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 hover:bg-muted transition-colors w-full text-left group"
                 >
