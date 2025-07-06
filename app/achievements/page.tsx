@@ -115,6 +115,10 @@ export default function AchievementsPage() {
         '/Vashisht_Hackathon/vashist13.jpg',
         '/Vashisht_Hackathon/vashist11.jpg',
       ],
+      details: [
+        'Conducted advanced traffic analysis on 1M+ ADAS and CAS data points, using spatio-temporal techniques to identify accident hotspots.',
+        'Created insightful dashboards and a detailed report incorporating real-time traffic data, enabling data-driven insights for urban mobility and road safety.'
+      ]
     },
     {
       title: 'First Place - Machine Learning Mania',
@@ -125,6 +129,9 @@ export default function AchievementsPage() {
         '/MLMania_Hackathon/mlmania.jpg',
         '/MLMania_Hackathon/annauni12.jpg',
       ],
+      details: [
+        'Built classification models achieving 94% accuracy through rigorous data cleaning and feature engineering. Focused on extracting meaningful patterns and optimizing predictive performance on real-world datasets'
+        ]
     },
     {
       title: 'Winners - Data-A-Thon',
@@ -133,6 +140,9 @@ export default function AchievementsPage() {
         '/Datathon/thon2.jpg',
         '/Datathon/thon.jpg'
       ],
+      details: [
+        'Developed a CNN model achieving 91% accuracy on complex image datasets. Complemented the model with an interactive dashboard for real-time predictions and result visualization. '
+      ]
     },
     {
       title: '7th Position @Leaderboard Data-A-Thon',
@@ -210,6 +220,13 @@ export default function AchievementsPage() {
                         <p className="text-sm md:text-base text-muted-foreground">
                           {achievement.venue}
                         </p>
+                        {achievement.details && (
+                          <ul className="list-disc pl-5 mt-2 space-y-1 text-sm md:text-base text-muted-foreground">
+                            {achievement.details.map((point, idx) => (
+                              <li key={idx}>{point}</li>
+                            ))}
+                          </ul>
+                        )}
                       </div>
                     </div>
                   </div>
