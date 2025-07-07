@@ -46,12 +46,14 @@ export const EXPERIENCE = [
     logo: "/bct.jpeg",
     position: "Software Engineer Intern",
     duration: "May-July 2025",
-    description: [
-      "Implemented session management in an AI-based application for World Bank, enabling support for multiple users per server (previously single-user only).",
-      "Optimized data processing logic to efficiently handle over 1 million records.",
-      "Resolved record mismatch issues in the Table Comparison module.",
-      "Currently enhancing unstructured data extraction by fine-tuning models for improved accuracy on unstructured PDFs.",
-    ],
+    description: 
+      [
+        "Implemented session management in an AI-based application for World Bank, enabling support for multiple users per server (previously single-user only).",
+        "Optimized data processing logic to efficiently handle over 1 million records.",
+        "Resolved record mismatch issues in the Table Comparison module.",
+        "Developed a fully offline location validation logic to ensure user privacy, avoiding reliance on third-party online APIs.",
+        "Fine-tuned models for improved accuracy in unstructured data extraction from PDFs."
+      ],
     technologies: ["Python", "Git", "Flask", "SQL","ETL"],
   },
 ];
