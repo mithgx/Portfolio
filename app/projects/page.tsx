@@ -13,13 +13,6 @@ import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 
 export default function ProjectsPage() {
   const projects = [
-    // {
-    //   title: 'AI-Powered Analytics Dashboard',
-    //   description: 'A comprehensive analytics platform with real-time data visualization, machine learning insights, and predictive analytics capabilities.',
-    //   images: ['/project1.jpg', '/project1b.jpg'],
-    //   tags: ['Next.js', 'TypeScript', 'Python', 'TensorFlow', 'PostgreSQL'],
-    //   githubLink: 'https://github.com/mithgx/project1',
-    // }, 
     
     {
       title: 'UnstructData',
@@ -46,17 +39,11 @@ export default function ProjectsPage() {
     {
       title: 'DermAI  ',
       description: ' DermAI is an AI-powered project for classifying skin cancer from images, providing users with preliminary diagnostics, cancer-related information via a medical chatbot, and recommendations for nearby hospitals  ',
-      images: ['Projects/DermAI/6.png',  'Projects/DermAI/3.png', 'Projects/DermAI/4.png', 'Projects/DermAI/5.png','Projects/DermAI/1.png', 'Projects/DermAI/2.png'],
+      images: ['Projects/DermAI/4.png','Projects/DermAI/6.png',  'Projects/DermAI/3.png',  'Projects/DermAI/5.png','Projects/DermAI/1.png', 'Projects/DermAI/2.png'],
       tags: ['Python', 'Streamlit', 'TensorFlow', 'NumPy','Folium','Firebase'],
       githubLink: 'https://github.com/mithgx/DermAI',
     },
-    // {
-    //   title: 'Blockchain Voting System',
-    //   description: 'A secure and transparent voting system built on blockchain technology with smart contracts and decentralized architecture.',
-    //   images: ['/project6.jpg', '/project6b.jpg'],
-    //   tags: ['Solidity', 'Web3.js', 'React', 'Ethereum', 'IPFS'],
-    //   githubLink: 'https://github.com/mithgx/project6',
-    // },
+ 
   ];
 
   const [api, setApi] = useState<CarouselApi>();
@@ -126,7 +113,7 @@ export default function ProjectsPage() {
           initial="hidden"
           animate="show"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 min-h-[60vh]">
+          <div className="flex flex-col gap-12 min-h-[60vh]">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
@@ -134,7 +121,7 @@ export default function ProjectsPage() {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
-                className="group card-enhanced p-0 overflow-hidden rounded-2xl shadow-2xl bg-white dark:bg-zinc-900 flex flex-col h-full"
+                className="group card-enhanced p-0 overflow-hidden rounded-2xl shadow-2xl bg-white dark:bg-zinc-900 flex flex-col h-full transform scale-105 hover:scale-110 transition-transform duration-300 max-w-2xl mx-auto w-full"
                 style={{ minHeight: '520px' }}
               >
                 <div className="relative rounded-xl overflow-hidden bg-muted/30 w-full h-80">
