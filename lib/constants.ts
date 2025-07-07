@@ -30,14 +30,6 @@ export const SOCIAL_LINKS = [
 ];
 
 export const SKILLS = [
-  { name: "JavaScript", level: 90 },
-  { name: "TypeScript", level: 85 },
-  { name: "React", level: 90 },
-  { name: "Next.js", level: 85 },
-  { name: "Node.js", level: 80 },
-  { name: "CSS/SCSS", level: 85 },
-  { name: "UI/UX Design", level: 75 },
-  { name: "GraphQL", level: 70 },
 ];
 
 export const EXPERIENCE = [
@@ -50,7 +42,6 @@ export const EXPERIENCE = [
       [
         "Implemented session management in an AI-based application for World Bank, enabling support for multiple users per server (previously single-user only).",
         "Optimized data processing logic to efficiently handle over 1 million records.",
-        "Resolved record mismatch issues in the Table Comparison module.",
         "Developed a fully offline location validation logic to ensure user privacy, avoiding reliance on third-party online APIs.",
         "Fine-tuned models for improved accuracy in unstructured data extraction from PDFs."
       ],
@@ -62,30 +53,7 @@ export const EXPERIENCE = [
 
 
 export const PROJECTS = [
-  {
-    title: "Project One",
-    description: "A comprehensive web application for task management with real-time collaboration features.",
-    image: "https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg",
-    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-    liveUrl: "https://project-one.com",
-    githubUrl: "https://github.com/username/project-one",
-  },
-  {
-    title: "Project Two",
-    description: "An e-commerce platform built with modern technologies, featuring a sleek UI and seamless checkout experience.",
-    image: "https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg",
-    tags: ["React", "Node.js", "MongoDB", "Stripe"],
-    liveUrl: "https://project-two.com",
-    githubUrl: "https://github.com/username/project-two",
-  },
-  {
-    title: "Project Three",
-    description: "A data visualization dashboard that transforms complex datasets into intuitive, interactive visualizations.",
-    image: "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg",
-    tags: ["D3.js", "React", "TypeScript", "REST API"],
-    liveUrl: "",
-    githubUrl: "",
-  },
+
 ];
 
 export const ACHIEVEMENTS = [

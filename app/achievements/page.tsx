@@ -19,15 +19,12 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
 export default function AchievementsPage() {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
+  // All hooks at the top, no early returns!
   const [openImage, setOpenImage] = useState<string | null>(null);
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [currentImages, setCurrentImages] = useState<string[]>([]);
 
-  // Handle keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (openImage) {
@@ -58,10 +55,8 @@ export default function AchievementsPage() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [api, openImage, currentImages]);
 
-  // Track current slide
   useEffect(() => {
     if (!api) return;
-
     api.on('select', () => {
       setCurrent(api.selectedScrollSnap());
     });
