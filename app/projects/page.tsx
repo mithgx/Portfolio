@@ -201,25 +201,29 @@ export default function ProjectsPage() {
           <div className="flex flex-row items-center justify-between w-full gap-4">
             <h3 className="text-lg md:text-xl mb-0 font-normal whitespace-nowrap">View more projects</h3>
             <Button
+              variant="outline"
               asChild
-              className="btn-primary text-lg px-8 py-4 flex items-center gap-2"
             >
               <a
                 href="https://github.com/mithgx?tab=repositories"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2"
               >
+                <Github className="mr-2 h-4 w-4" />
                 GitHub
-                <Github className="ml-2 w-5 h-5" />
               </a>
             </Button>
           </div>
           <div className="flex flex-row items-center justify-between w-full gap-4">
             <h3 className="text-lg md:text-xl mb-0 font-normal whitespace-nowrap">Interested in collaborating?</h3>
-            <Button asChild className="btn-primary text-lg px-8 py-4 flex items-center gap-2">
-              <a href="/contact">
+            <Button
+              variant="outline"
+              asChild
+            >
+              <a href="/contact" className="flex items-center justify-center gap-2">
+                <ChevronRight className="mr-2 h-4 w-4" />
                 Get In Touch
-                <ChevronRight className="ml-2 h-4 w-4" />
               </a>
             </Button>
           </div>
