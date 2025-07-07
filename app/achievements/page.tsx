@@ -19,6 +19,9 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
 export default function AchievementsPage() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
   const [openImage, setOpenImage] = useState<string | null>(null);
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
