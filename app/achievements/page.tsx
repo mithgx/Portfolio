@@ -110,7 +110,7 @@ export default function AchievementsPage() {
 
   const hackathonAchievements = [
     {
-      title: 'First Place - Vashisht Hackathon',
+      title: 'First Place - Data Analytics Challenge ',
       venue: 'IIITDM Kancheepuram, 2024',
       images: [
         '/Vashisht_Hackathon/vash2.jpg',
@@ -240,9 +240,9 @@ export default function AchievementsPage() {
                           {achievement.venue}
                         </p>
                         {achievement.details && (
-                          <ul className="list-disc pl-5 mt-2 space-y-1 text-sm md:text-base text-muted-foreground">
+                          <ul className="list-disc pl-3 md:pl-4 mt-3 md:mt-4 space-y-3 text-sm md:text-base text-muted-foreground">
                             {achievement.details.map((point, idx) => (
-                              <li key={idx}>{point}</li>
+                              <li key={idx} className="leading-relaxed">{point}</li>
                             ))}
                           </ul>
                         )}
@@ -272,8 +272,8 @@ export default function AchievementsPage() {
                                 className="object-contain no-animation transition-transform duration-300 group-hover/image:scale-105"
                                 priority={index === 0}
                               />
-                              <div className="absolute inset-0 bg-black/0 group-hover/image:bg-black/10 transition-colors duration-300 flex items-center justify-center">
-                                <div className="opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 bg-white/90 dark:bg-black/90 rounded-full p-2">
+                              <div className="absolute top-2 right-2 z-10">
+                                <div className="bg-white/90 dark:bg-black/90 rounded-full p-2 shadow-lg">
                                   <Fullscreen className="w-5 h-5" />
                                 </div>
                               </div>
