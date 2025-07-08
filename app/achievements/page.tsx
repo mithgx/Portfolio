@@ -1,7 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { Trophy, ChevronLeft, ChevronRight, Award, Medal, Star } from 'lucide-react';
+import { motion, time } from 'framer-motion';
+import { Trophy, ChevronLeft, ChevronRight, Award, Medal, Star, Fullscreen } from 'lucide-react';
 import { fadeIn } from '@/lib/animations';
 import {
   Carousel,
@@ -17,6 +17,7 @@ import { useState, useEffect } from 'react';
 import type { CarouselApi } from '@/components/ui/carousel';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { useImageZoom } from '@/components/image-zoom-context';
 
 export default function AchievementsPage() {
   // All hooks at the top, no early returns!
@@ -24,6 +25,7 @@ export default function AchievementsPage() {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [currentImages, setCurrentImages] = useState<string[]>([]);
+  const { isImageZoomed, setIsImageZoomed } = useImageZoom();
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -61,6 +63,10 @@ export default function AchievementsPage() {
       setCurrent(api.selectedScrollSnap());
     });
   }, [api]);
+
+  useEffect(() => {
+    setIsImageZoomed(!!openImage);
+  }, [openImage, setIsImageZoomed]);
 
   const handleImageClick = (image: string, images: string[]) => {
     setCurrentImages(images);
@@ -129,7 +135,8 @@ export default function AchievementsPage() {
         '/MLMania_Hackathon/annauni12.jpg',
       ],
       details: [
-        'Built classification models achieving 94% accuracy through rigorous data cleaning and feature engineering. Focused on extracting meaningful patterns and optimizing predictive performance on real-world datasets'
+        'Built classification models achieving 94% accuracy through rigorous data cleaning and feature engineering.',
+        'Focused on extracting meaningful patterns and optimizing predictive performance on real-world datasets.'
         ]
     },
     {
@@ -140,11 +147,13 @@ export default function AchievementsPage() {
         '/Datathon/thon.jpg'
       ],
       details: [
-        'Developed a CNN model achieving 91% accuracy on complex image datasets. Complemented the model with an interactive dashboard for real-time predictions and result visualization. '
+        'After hunting down clues across the university campus in the scorching heat to unlock the dataset, we developed a CNN model that achieved 91% accuracy on a complex image classification task.',
+        'The model was complemented with real-time result visualizations to interpret predictions effectively.'  
+      
       ]
     },
     {
-      title: '7th Position @Leaderboard Data-A-Thon',
+      title: '7th Position @ Leaderboard DataSet \'24',
       venue: 'VIT, 2025',
       images: [
         '/hackathon3/IMG_5843.png',
@@ -152,6 +161,10 @@ export default function AchievementsPage() {
         '/hackathon3/IMG_6402.jpg',
         '/hackathon3/IMG_6406.jpg',
       ],
+      details:[
+        'In this challenge with 150+ participants, we addressed a problem on predicting and managing user traffic surges in 5G networks.',
+        ' We created a synthetic telecom dataset, built an LSTM-based prediction model, and integrated it into a web app featuring network data visualizations and a custom chatbot (Grok) trained on network-related queries.'
+      ]
     },
     {
       title: 'Finalist - CodeCycle',
@@ -161,6 +174,10 @@ export default function AchievementsPage() {
         '/CodeCycle_Hackathon/CodeCycle24 x GT-0040.png',
         '/CodeCycle_Hackathon/annauni11.jpg',
       ],
+      details:[
+        'A two-phase hackathon where the first round focused on cryptography, deep learning, and JavaScript.',
+        ' Our team qualified for the finals, where we built ThunAi — a real-time women’s safety app with live location tracking, secure Firebase storage, and an SOS alert system.'
+      ]
     },
     {
       title: 'Finalist - DataQuest',
@@ -170,6 +187,10 @@ export default function AchievementsPage() {
         '/DataQuest_Hackathon/IMG_0663.png',
         '/DataQuest_Hackathon/IMG_0674.jpg',
       ],
+      details:[
+        'Performed EDA and developed impactful visualizations on customer credit finance data, focusing on patterns linked to user behavior.',
+        'In the finals, we presented the classic customer churn prediction system, showcasing actionable insights and key financial indicators to support strategic decisions.'
+      ]
     },
   ];
 
@@ -253,7 +274,7 @@ export default function AchievementsPage() {
                               />
                               <div className="absolute inset-0 bg-black/0 group-hover/image:bg-black/10 transition-colors duration-300 flex items-center justify-center">
                                 <div className="opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 bg-white/90 dark:bg-black/90 rounded-full p-2">
-                                  <ChevronRight className="w-5 h-5" />
+                                  <Fullscreen className="w-5 h-5" />
                                 </div>
                               </div>
                             </div>

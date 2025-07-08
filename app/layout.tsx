@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { NavTabs } from '@/components/nav-tabs';
 import { Analytics } from "@vercel/analytics/next"
 import Script from 'next/script';
+import { ImageZoomProvider } from '@/components/image-zoom-context';
 
 const outfit = Outfit({ 
   subsets: ['latin'],
@@ -61,17 +62,19 @@ export default function RootLayout({
         />
       </head>
       <body className={outfit.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-          forcedTheme="dark"
-          disableTransitionOnChange
-        >
-          <NavTabs />
-          {children}
-          <Analytics />
-        </ThemeProvider>
+        <ImageZoomProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem={false}
+            forcedTheme="dark"
+            disableTransitionOnChange
+          >
+            <NavTabs />
+            {children}
+            <Analytics />
+          </ThemeProvider>
+        </ImageZoomProvider>
       </body>
     </html>
   );
