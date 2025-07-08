@@ -202,7 +202,7 @@ export default function ProjectsPage() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="flex flex-col gap-6 mt-16 p-8 rounded-xl bg-gradient-to-r from-primary/5 to-secondary/5 border border-border/50 max-w-2xl mx-auto"
+          className="flex flex-col gap-6 mt-16 p-4 md:p-8 rounded-xl bg-gradient-to-r from-primary/5 to-secondary/5 border border-border/50 w-full max-w-2xl mx-auto"
         >
           <div className="flex flex-row items-center justify-between w-full gap-4">
             <h3 className="text-lg md:text-xl mb-0 font-normal whitespace-nowrap">View more projects</h3>
