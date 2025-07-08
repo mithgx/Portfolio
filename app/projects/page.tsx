@@ -127,10 +127,10 @@ export default function ProjectsPage() {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
-                className="group card-enhanced p-0 overflow-hidden rounded-2xl shadow-2xl bg-white dark:bg-zinc-900 flex flex-col h-full transform scale-105 hover:scale-110 transition-transform duration-300 max-w-2xl mx-auto w-full"
+                className="group card-enhanced p-3 md:p-8 rounded-xl shadow-lg bg-white dark:bg-zinc-900 flex flex-col space-y-4 max-w-2xl mx-auto w-full"
                 style={{ minHeight: '520px' }}
               >
-                <div className="relative rounded-xl overflow-hidden bg-muted/30 w-full h-80">
+                <div className="relative w-full h-56 md:h-80 overflow-hidden bg-muted/30 p-0 m-0">
                   <Carousel 
                     className="relative w-full h-full"
                     setApi={setApi}
@@ -139,12 +139,12 @@ export default function ProjectsPage() {
                     <CarouselContent className="no-animation">
                       {project.images.map((img, i) => (
                         <CarouselItem key={i} className="no-animation">
-                          <div className="relative w-full h-80 flex items-center justify-center overflow-hidden bg-transparent group/image">
+                          <div className="relative w-full h-56 md:h-80 flex items-center justify-center overflow-hidden bg-transparent group/image p-0 m-0">
                             <Image
                               src={img}
                               alt={project.title + ' image ' + (i+1)}
                               fill
-                              className="object-contain transition-transform duration-300 group-hover/image:scale-105"
+                              className="object-cover transition-transform duration-300 group-hover/image:scale-105 rounded-t-xl"
                               priority={i === 0}
                             />
                             <button
@@ -167,14 +167,14 @@ export default function ProjectsPage() {
                     />
                   </Carousel>
                 </div>
-                <div className="p-8 flex-1 flex flex-col">
-                  <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
+                <div className="flex-1 flex flex-col space-y-3 p-2 md:p-4">
+                  <h3 className="text-xl md:text-2xl font-bold mb-1 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                  <p className="text-base text-muted-foreground mb-2 leading-relaxed">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-3 mb-6">
+                  <div className="flex flex-wrap gap-2 mb-2">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
@@ -221,11 +221,14 @@ export default function ProjectsPage() {
               </a>
             </Button>
           </div>
-          <div className="flex flex-row items-center justify-between w-full gap-4">
-            <h3 className="text-lg md:text-xl mb-0 font-normal whitespace-nowrap">Interested in collaborating?</h3>
+          <div className="flex flex-row flex-wrap items-center w-full gap-2">
+            <h3 className="text-lg md:text-xl font-normal whitespace-normal flex-1">
+              Interested in collaborating?
+            </h3>
             <Button
               variant="outline"
               asChild
+              className="w-auto"
             >
               <a href="/contact" className="flex items-center justify-center gap-2">
                 <ChevronRight className="mr-2 h-4 w-4" />
