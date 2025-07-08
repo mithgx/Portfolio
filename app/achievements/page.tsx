@@ -85,7 +85,8 @@ export default function AchievementsPage() {
     if (title.includes('First Place') || title.includes('Winners')) {
       return <Trophy className="h-6 w-6 md:h-8 md:w-8 text-yellow-500" />;
     } else if (title.includes('Position') || title.includes('Leaderboard')) {
-      return <Medal className="h-6 w-6 md:h-8 md:w-8 text-orange-500" />;
+      // Use Award icon with blue color for 7th place @ leaderboard
+      return <Award className="h-6 w-6 md:h-8 md:w-8 text-blue-500" />;
     } else {
       return <Award className="h-6 w-6 md:h-8 md:w-8 text-blue-500" />;
     }
@@ -186,11 +187,10 @@ export default function AchievementsPage() {
             Competitive Achievements
           </div>
           <h1 className="text-2xl md:text-3xl font-bold mb-3">
-            Hackathon <span className="gradient-text">Achievements</span>
+            Hackathon <span className="gradient-text">Highlights</span>
           </h1>
           <p className="text-sm text-muted-foreground max-w-xl mx-auto">
-            Showcasing innovation and problem-solving through competitive coding, 
-            with victories and recognitions across multiple prestigious hackathons.
+          Participated in 15+ hackathons — fortunate to have secured a few wins, and even more grateful for the experience.
           </p>
         </motion.div>
 
