@@ -10,6 +10,7 @@ import { useState, useEffect } from 'react';
 import type { CarouselApi } from '@/components/ui/carousel';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
+import { useImageZoom } from '@/components/image-zoom-context';
 
 export default function ProjectsPage() {
   const projects = [
@@ -50,6 +51,7 @@ export default function ProjectsPage() {
   const [openImage, setOpenImage] = useState<string | null>(null);
   const [currentImages, setCurrentImages] = useState<string[]>([]);
   const [zoomIndex, setZoomIndex] = useState(0);
+  const { isImageZoomed, setIsImageZoomed } = useImageZoom();
 
   // Keyboard navigation for zoomed carousel
   useEffect(() => {
@@ -66,6 +68,10 @@ export default function ProjectsPage() {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [openImage, zoomIndex, currentImages]);
+
+  useEffect(() => {
+    setIsImageZoomed(!!openImage);
+  }, [openImage, setIsImageZoomed]);
 
   const handleImageClick = (image: string, images: string[], idx: number) => {
     setCurrentImages(images);

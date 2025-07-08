@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
-
+import { useImageZoom } from '@/components/image-zoom-context';
 const tabs = [
   { name: 'Home', href: '/' },
   { name: 'Projects', href: '/projects' },
@@ -17,12 +17,16 @@ const tabs = [
 export function NavTabs() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = React.useState(false);
+  const { isImageZoomed } = useImageZoom();
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[9999] border-b border-border/50 bg-background/80 backdrop-blur-xl backdrop-saturate-150">
+    <header className={cn(
+      "fixed top-0 left-0 right-0 z-[9999] border-b border-border/50 bg-background/80 backdrop-blur-xl backdrop-saturate-150 transition-all duration-300",
+      isImageZoomed && "bg-background/30 backdrop-blur-2xl pointer-events-none"
+    )}>
       <div className="container mx-auto px-4 max-w-screen-xl">
         <nav className="flex h-20 items-center justify-between">
           <div className="flex-1 flex justify-center sm:justify-center">
