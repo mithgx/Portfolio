@@ -34,7 +34,7 @@ export default function ContactPage() {
           </h1>
           <p className="text-sm text-muted-foreground max-w-xl mx-auto">
             Feel free to reach out for collaborations, opportunities, or just a friendly hello. 
-            I'm always excited to connect with fellow developers and innovators.
+            {/* I'm always excited to connect with fellow developers and innovators. */}
           </p>
         </motion.div>
 
@@ -49,8 +49,7 @@ export default function ContactPage() {
               <h2 className="text-2xl font-semibold mb-6">Contact Information</h2>
               <p className="text-muted-foreground mb-8 leading-relaxed text-center">
                 I'm always open to discussing new projects, creative ideas, or 
-                opportunities to be part of your visions. Let's create something amazing together.
-              </p>
+                opportunities to be part of your visions.               </p>
 
               <div className="space-y-6">
                 <button

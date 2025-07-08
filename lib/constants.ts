@@ -41,11 +41,11 @@ export const EXPERIENCE = [
     description: 
       [
         "Implemented session management in an AI-based application for World Bank, enabling support for multiple users per server (previously single-user only).",
-        "Optimized data processing logic to efficiently handle over 1 million records.",
+        "Optimized the data processing logic in a World Bank data comparison app to efficiently handle over 1 million records across diverse formats — including SQL databases, Snowflake and custom file structures.",
         "Developed a fully offline location validation logic to ensure user privacy, avoiding reliance on third-party online APIs.",
         "Fine-tuned models for improved accuracy in unstructured data extraction from PDFs."
       ],
-    technologies: ["Python", "Git", "Flask", "SQL","ETL"],
+    technologies: ["Python", "Flask", "Git", "SQL","ETL","Transformers"],
   },
 ];
 
