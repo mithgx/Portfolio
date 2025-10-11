@@ -102,7 +102,11 @@ export default function ContactPage() {
                 </Button>
                 <Button variant="outline" asChild className="h-14 flex-col gap-2">
                   <a href="https://leetcode.com/u/mithileshg47/" target="_blank" rel="noopener noreferrer">
-                    <LeetCodeIcon className="h-5 w-5" variant="simple" />
+                    <img 
+                      src="/icons8-leetcode-external-tal-revivo-light-tal-revivo-16.png" 
+                      alt="LeetCode" 
+                      className="h-5 w-5" 
+                    />
                     <span className="text-xs">LeetCode</span>
                   </a>
                 </Button>
