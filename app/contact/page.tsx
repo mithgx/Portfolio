@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Github, Linkedin, Mail, FileText, Download, Copy } from 'lucide-react';
+import { LeetCodeIcon } from '@/components/ui/leetcode-icon';
 import { fadeIn } from '@/lib/animations';
 import { useState } from 'react';
 
@@ -86,7 +87,7 @@ export default function ContactPage() {
 
             <div className="card-enhanced p-8">
               <h3 className="text-xl font-semibold mb-6">Follow Me</h3>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-3 gap-4">
                 <Button variant="outline" asChild className="h-14 flex-col gap-2">
                   <a href="https://github.com/mithgx" target="_blank" rel="noopener noreferrer">
                     <Github className="h-5 w-5" />
@@ -97,6 +98,12 @@ export default function ContactPage() {
                   <a href="https://www.linkedin.com/in/mithileshgopalakrishnan/" target="_blank" rel="noopener noreferrer">
                     <Linkedin className="h-5 w-5" />
                     <span className="text-xs">LinkedIn</span>
+                  </a>
+                </Button>
+                <Button variant="outline" asChild className="h-14 flex-col gap-2">
+                  <a href="https://leetcode.com/u/mithileshg47/" target="_blank" rel="noopener noreferrer">
+                    <LeetCodeIcon className="h-5 w-5" variant="simple" />
+                    <span className="text-xs">LeetCode</span>
                   </a>
                 </Button>
               </div>
