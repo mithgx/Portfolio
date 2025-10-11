@@ -1,66 +1,69 @@
 # Mithilesh Gopalakrishnan | Portfolio
 
-A modern, responsive portfolio website built with Next.js, React, and Tailwind CSS. Showcasing projects, achievements, experience, and education with beautiful UI and smooth animations.
+A responsive portfolio website built with **Next.js**, **React**, and **Tailwind CSS**.  
+It presents my projects, hackathon achievements, professional experience, and education through a clean, intuitive interface with smooth animations.
 
-## 🚀 Features
+---
 
-- **Modern UI**: Clean, responsive design with dark mode support
-- **Projects Showcase**: Highlighting best work with live demos and GitHub links
-- **Experience & Education**: Tabbed view for professional and academic background
-- **Achievements**: Carousel and full-size modal view for hackathon and competition wins
-- **Contact**: Email copy-to-clipboard with toast notification
-- **Smooth Animations**: Framer Motion for page and element transitions
-- **Mobile Friendly**: Optimized for all devices
+## Overview
 
-## 🛠️ Tech Stack
+This portfolio reflects my work as a software engineer and ML practitioner. It highlights selected projects involving **Flask-based applications, AI/ML pipelines, and PDF/data processing solutions**, alongside hackathon and competition achievements. The design emphasizes clarity, accessibility, and performance, ensuring an optimal experience across devices.
 
-- [Next.js](https://nextjs.org/)
-- [React](https://react.dev/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [Radix UI](https://www.radix-ui.com/) (Dialog, Tabs, Carousel, etc.)
-- [Lucide Icons](https://lucide.dev/)
+---
 
-## 📦 Getting Started
+## Features
 
-### 1. Clone the repository
+- **Responsive and Modern UI** with dark mode support  
+- **Project Showcase** with live demos and GitHub links  
+- **Experience & Education Tabs** for easy navigation  
+- **Achievements Section** with detailed views of hackathon wins  
+- **Contact Page** with one-click email copy functionality  
+- **Smooth Animations** powered by Framer Motion  
+- **Optimized for Mobile and Desktop**
+
+---
+
+## Tech Stack
+
+- **Next.js** – Server-side rendering and static site generation  
+- **React** – Component-driven UI development  
+- **Tailwind CSS** – Utility-first styling for rapid design  
+- **Framer Motion** – Animations for page and element transitions  
+- **Radix UI** – Accessible, unstyled components (dialogs, tabs, carousel)  
+- **Lucide Icons** – Lightweight icon library  
+
+---
+
+## Setup Instructions
+
+### Clone the repository
 ```bash
-git clone https://github.com/yourusername/your-portfolio.git
-cd your-portfolio
+git clone https://github.com/mithilesh/portfolio.git
+cd portfolio  
 ```
 
-### 2. Install dependencies
-```bash
-npm install
-# or
-yarn install
-```
+## Install dependencies
+```npm install```
 
-### 3. Run the development server
-```bash
+## Run in development
+```bash 
 npm run dev
-# or
-yarn dev
 ```
 
+## Build for production
+```bash 
 
-
-## 🖼️ Customization - (For your own customization after pulling my repo)
-- Update your details in `lib/constants.ts` (projects, experience, education, etc.)
-- Add your images/logos to the `public/` or `public/logos/` directory 
-- Tweak styles in `app/globals.css` or Tailwind config
-
-## 🛠️ Build for Production
-```bash
 npm run build
 npm start
 ```
 
-## 🌐 Deployment
-This project works great on [Vercel](https://vercel.com/) (recommended), Netlify, or any Node.js server.
+## Customization
 
-## 📄 License
-MIT
+For personal use:
 
----
+Update details in **lib/constants.ts** (projects, experience, education, achievements)
+
+Add project or company logos under **public/ or public/logos/**
+
+Modify global styles in **app/globals.css** or **tailwind.config.js**
 
