@@ -48,12 +48,19 @@ export default function ProjectsPage() {
       title: 'ThunAI  ',
       description: ' ThunAI is an AI-powered project for classifying skin cancer from images, providing users with preliminary diagnostics, cancer-related information via a medical chatbot, and recommendations for nearby hospitals  ',
       images: ['/Projects/ThunAI/2.png',  '/Projects/ThunAI/3.png',  '/Projects/ThunAI/4.png','/Projects/ThunAI/5.png', '/Projects/ThunAI/6.png'],
-      tags: ['Python', '', 'TensorFlow', 'NumPy','Folium','Firebase'],
+      tags: ['Python', 'TensorFlow', 'NumPy','Folium','Firebase'],
       githubLink: 'https://github.com/mithgx/ThunAI',
     },
   ];
 
   const dataAnalysisProjects = [
+    {
+      title: 'Predictive Road Safety Insights from Multi-State Vehicle Sensor Data',
+      description: 'A data-driven road safety analytics project leveraging 1.8M+ ADAS and DMS sensor events from 130 vehicles across 7 Indian states. Using geospatial clustering, temporal trend analysis, and driver behavior insights, it identifies accident blackspots and risky driving patterns. The solution powers an interactive Power BI dashboard with actionable interventions for improving fleet and public road safety.',
+      images: ['/Projects/Vashist/v1.png','/Projects/Vashist/v2.png','/Projects/Vashist/v3.png','/Projects/Vashist/v4.png','/Projects/Vashist/v5.png'],
+      tags: ['Power BI','Pandas', 'Seaborn'],
+      githubLink: 'https://github.com/mithgx/NexusAeon-Vashisht-Hackathon',
+    },
     {
       title: 'Real-Time Haul Truck Operational State Classification',
       description: 'Real-time classification of haul truck states (Loading, Hauling, Dumping, Idle) using GPS data and ML to optimize fleet efficiency in open-pit mining.',
@@ -62,16 +69,9 @@ export default function ProjectsPage() {
       githubLink: 'https://github.com/mithgx/OES-ML-Challenge',
     },
     {
-      title: 'Predictive Road Safety Insights from Multi-State Vehicle Sensor Data',
-      description: 'A data-driven road safety analytics project leveraging 1.8M+ ADAS and DMS sensor events from 130 vehicles across 7 Indian states. Using geospatial clustering, temporal trend analysis, and driver behavior insights, it identifies accident blackspots and risky driving patterns. The solution powers an interactive Power BI dashboard with actionable interventions for improving fleet and public road safety.',
-      images: ['/Projects/UnstructData/2.png'],
-      tags: ['scikit-learn', 'Seaborn','Power BI'],
-      githubLink: 'https://github.com/mithgx/NexusAeon-Vashisht-Hackathon',
-    },
-    {
       title: 'Nashik Weather Condition Classification using Random Forest',
       description: 'Developed a machine learning model to predict daily weather conditions in Nashik using historical meteorological data. Leveraged Random Forest for robust, high-accuracy classification based on temperature, humidity, wind speed, and solar energy patterns.',
-      images: ['/Projects/UnstructData/3.png'],
+      images: ['/Projects/Nashik_ML/NASHIK1.png','/Projects/Nashik_ML/Nashik2.0.png','/Projects/Nashik_ML/Nashik2.1.png','/Projects/Nashik_ML/Nashik2.png','/Projects/Nashik_ML/Nashik3.png'],
       tags: ['Pandas', 'Random Forest', 'Matplotlib'],
       githubLink: 'https://github.com/mithgx/MLOlympiad-24',
     },
@@ -162,7 +162,7 @@ export default function ProjectsPage() {
               </TabsTrigger>
               <TabsTrigger value="data" className="flex items-center gap-1.5 px-3 py-1.5 rounded-md data-[state=active]:bg-background data-[state=active]:shadow-sm text-sm">
                 <BarChart2 className="w-4 h-4" />
-                Data Analysis Projects
+                Data Analysis 
               </TabsTrigger>
             </TabsList>
           </div>
