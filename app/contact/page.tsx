@@ -16,6 +16,21 @@ export default function ContactPage() {
     caption?: string;
   }>({ open: false, type: 'image', src: '' });
 
+  // Media configuration - reordered for better visual balance
+  const mediaItems = [
+    { src: '/Media/cube0.mp4', type: 'video' as const, title: '3x3 with Feet' },
+    { src: '/Media/cubepic1.jpg', type: 'image' as const, title: "Kumaraguru Cube Open '24" },
+    { src: '/Media/cube2.MP4', type: 'video' as const, title: 'Sq1 ' },
+    { src: '/Media/cubepic2.jpg', type: 'image' as const, title: "SSN Cube Open '25 "},
+    { src: '/Media/cube3.MP4', type: 'video' as const, title: 'Clock' },
+    { src: '/Media/sq1.mp4', type: 'video' as const, title: 'Skewb ' },
+    { src: '/Media/ohmcc2.mp4', type: 'video' as const, title: "3x3 One-Handed " },
+    { src: 'wca-profile', type: 'wca' as const, title: 'WCA Profile' },
+  ];
+
+  // Lock the grid layout - no randomization
+  const shuffledMedia = mediaItems;
+
   const handleCopyEmail = async (e?: React.MouseEvent) => {
     if (e) e.preventDefault();
     await navigator.clipboard.writeText('mithileshg47@gmail.com');
@@ -123,107 +138,57 @@ export default function ContactPage() {
             <div className="card-enhanced p-8 bg-white dark:bg-neutral-950">
               <h3 className="text-xl font-semibold mb-2">SideQuest - Cubing</h3>
               <p className="text-sm text-muted-foreground mb-6">A glimpse of my cubing journey — solves and podiums.</p>
+              
+
               {/* Masonry Grid */}
-              <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:_balance]">
-                {/* Video 1 */}
-                <div 
-                  className="masonry-item mb-4 group cursor-pointer rounded-xl overflow-hidden bg-white dark:bg-neutral-900 shadow-sm hover:shadow-md transition-shadow"
-                  onClick={() => setLightbox({ open: true, type: 'video', src: '/Media/cube0.mp4', caption: '3x3 PB – 9.21s' })}
-                >
-                  <video 
-                    src="/Media/cube0.mp4" 
-                    autoPlay 
-                    muted 
-                    loop 
-                    playsInline
-                    className="w-full h-auto block transition-transform duration-300 group-hover:scale-[1.02]"
-                  />
-                  <div className="px-3 py-2 text-xs text-muted-foreground">3x3 PB – 9.21s</div>
-                </div>
-                {/* Video 2 */}
-                <div 
-                  className="masonry-item mb-4 group cursor-pointer rounded-xl overflow-hidden bg-white dark:bg-neutral-900 shadow-sm hover:shadow-md transition-shadow"
-                  onClick={() => setLightbox({ open: true, type: 'video', src: '/Media/cube1.mp4', caption: 'OH Solve – 21.34s' })}
-                >
-                  <video 
-                    src="/Media/cube1.mp4" 
-                    autoPlay 
-                    muted 
-                    loop 
-                    playsInline
-                    className="w-full h-auto block transition-transform duration-300 group-hover:scale-[1.02]"
-                  />
-                  <div className="px-3 py-2 text-xs text-muted-foreground">OH Solve – 21.34s</div>
-                </div>
-                {/* Video 3 */}
-                <div 
-                  className="masonry-item mb-4 group cursor-pointer rounded-xl overflow-hidden bg-white dark:bg-neutral-900 shadow-sm hover:shadow-md transition-shadow"
-                  onClick={() => setLightbox({ open: true, type: 'video', src: '/Media/cube2.MP4', caption: '4x4 Solve – 1:15' })}
-                >
-                  <video 
-                    src="/Media/cube2.MP4" 
-                    autoPlay 
-                    muted 
-                    loop 
-                    playsInline
-                    className="w-full h-auto block transition-transform duration-300 group-hover:scale-[1.02]"
-                  />
-                  <div className="px-3 py-2 text-xs text-muted-foreground">4x4 Solve – 1:15</div>
-                </div>
-                {/* Image 1 */}
-                <div 
-                  className="masonry-item mb-4 group cursor-pointer rounded-xl overflow-hidden bg-white dark:bg-neutral-900 shadow-sm hover:shadow-md transition-shadow"
-                  onClick={() => setLightbox({ open: true, type: 'image', src: '/Media/cubepic1.jpg', caption: 'VIT Cubing League Winner' })}
-                >
-                  <img 
-                    src="/Media/cubepic1.jpg" 
-                    alt="VIT Cubing League Winner"
-                    className="w-full h-auto block object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                  />
-                  <div className="px-3 py-2 text-xs text-muted-foreground">VIT Cubing League Winner</div>
-                </div>
-                {/* Video 4 */}
-                <div 
-                  className="masonry-item mb-4 group cursor-pointer rounded-xl overflow-hidden bg-white dark:bg-neutral-900 shadow-sm hover:shadow-md transition-shadow"
-                  onClick={() => setLightbox({ open: true, type: 'video', src: '/Media/cube3.MP4', caption: '3x3 Ao5 – 12.34' })}
-                >
-                  <video 
-                    src="/Media/cube3.MP4" 
-                    autoPlay 
-                    muted 
-                    loop 
-                    playsInline
-                    className="w-full h-auto block transition-transform duration-300 group-hover:scale-[1.02]"
-                  />
-                  <div className="px-3 py-2 text-xs text-muted-foreground">3x3 Ao5 – 12.34</div>
-                </div>
-                {/* Video 5 */}
-                <div 
-                  className="masonry-item mb-4 group cursor-pointer rounded-xl overflow-hidden bg-white dark:bg-neutral-900 shadow-sm hover:shadow-md transition-shadow"
-                  onClick={() => setLightbox({ open: true, type: 'video', src: '/Media/cube4.mp4', caption: 'Practice Session' })}
-                >
-                  <video 
-                    src="/Media/cube4.mp4" 
-                    autoPlay 
-                    muted 
-                    loop 
-                    playsInline
-                    className="w-full h-auto block transition-transform duration-300 group-hover:scale-[1.02]"
-                  />
-                  <div className="px-3 py-2 text-xs text-muted-foreground">Practice Session</div>
-                </div>
-                {/* Image 2 */}
-                <div 
-                  className="masonry-item mb-4 group cursor-pointer rounded-xl overflow-hidden bg-white dark:bg-neutral-900 shadow-sm hover:shadow-md transition-shadow"
-                  onClick={() => setLightbox({ open: true, type: 'image', src: '/Media/cubepic2.jpg', caption: 'Event Winner' })}
-                >
-                  <img 
-                    src="/Media/cubepic2.jpg" 
-                    alt="Event Winner"
-                    className="w-full h-auto block object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                  />
-                  <div className="px-3 py-2 text-xs text-muted-foreground">Event Winner</div>
-                </div>
+              <div className="columns-1 sm:columns-2 lg:columns-2 xl:columns-3 gap-4 [column-fill:_balance]">
+                {shuffledMedia.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="masonry-item mb-4 group cursor-pointer rounded-xl overflow-hidden bg-white dark:bg-neutral-900 shadow-sm hover:shadow-md transition-shadow"
+                    onClick={() => item.type !== 'wca' && setLightbox({ open: true, type: item.type, src: item.src, caption: item.title })}
+                  >
+                    {item.type === 'video' ? (
+                      <video
+                        src={item.src}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                        className="w-full h-auto block transition-transform duration-300 group-hover:scale-[1.02]"
+                      />
+                    ) : item.type === 'image' ? (
+                      <img
+                        src={item.src}
+                        alt={item.title}
+                        className="w-full h-auto block object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                        loading="lazy"
+                      />
+                    ) : item.type === 'wca' ? (
+                      <a 
+                        href="https://www.worldcubeassociation.org/persons/2017GOPA01" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="block p-8 text-center transition-transform duration-300 group-hover:scale-[1.02]"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <div className="flex flex-col items-center gap-4">
+                          <img 
+                            src="/Media/WCA Logo.png" 
+                            alt="WCA Logo" 
+                            className="w-16 h-16 transition-transform duration-300 group-hover:scale-110"
+                          />
+                          <div>
+                            <h4 className="text-lg font-semibold text-foreground mb-1">WCA Profile</h4>
+                            <p className="text-sm text-muted-foreground">View my official competition results</p>
+                          </div>
+                        </div>
+                      </a>
+                    ) : null}
+                    <div className="px-3 py-2 text-xs text-muted-foreground">{item.title}</div>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -262,15 +227,15 @@ export default function ContactPage() {
             className="absolute inset-0 bg-black/70 backdrop-blur-sm opacity-100 animate-fade-in"
             onClick={() => setLightbox({ open: false, type: 'image', src: '' })}
           />
-          <div className="relative z-10 max-w-5xl w-[92vw] md:w-[85vw] lg:w-[70vw]">
+          <div className="relative z-10 max-w-4xl w-[90vw] max-h-[85vh] flex flex-col">
             <button 
               aria-label="Close"
-              className="absolute -top-12 right-0 md:-top-12 md:right-0 text-white/90 hover:text-white transition-colors"
+              className="absolute -top-12 right-0 md:-top-12 md:right-0 text-white/90 hover:text-white transition-colors z-20"
               onClick={() => setLightbox({ open: false, type: 'image', src: '' })}
             >
               ✕
             </button>
-            <div className="rounded-xl overflow-hidden shadow-2xl bg-black">
+            <div className="rounded-xl overflow-hidden shadow-2xl bg-black animate-zoom-in max-h-full flex items-center justify-center">
               {lightbox.type === 'video' ? (
                 <video 
                   src={lightbox.src} 
@@ -279,10 +244,14 @@ export default function ContactPage() {
                   loop 
                   controls 
                   playsInline
-                  className="w-full h-auto"
+                  className="max-w-full max-h-[75vh] w-auto h-auto"
                 />
               ) : (
-                <img src={lightbox.src} alt={lightbox.caption || 'media'} className="w-full h-auto" />
+                <img 
+                  src={lightbox.src} 
+                  alt={lightbox.caption || 'media'} 
+                  className="max-w-full max-h-[75vh] w-auto h-auto object-contain" 
+                />
               )}
             </div>
             {lightbox.caption && (
