@@ -47,7 +47,7 @@ export default function ProjectsPage() {
     {
       title: 'ThunAI  ',
       description: ' ThunAI is an AI-powered project for classifying skin cancer from images, providing users with preliminary diagnostics, cancer-related information via a medical chatbot, and recommendations for nearby hospitals  ',
-      images: ['/Projects/ThunAI/2.png',  '/Projects/ThunAI/3.png',  '/Projects/ThunAI/4.png','/Projects/ThunAI/5.png', '/Projects/ThunAI/6.png'],
+      images: ['/Projects/ThunAI/2.png',  '/Projects/ThunAI/3.png'],
       tags: ['Python', 'TensorFlow', 'NumPy','Folium','Firebase'],
       githubLink: 'https://github.com/mithgx/ThunAI',
     },
@@ -64,8 +64,8 @@ export default function ProjectsPage() {
     {
       title: 'Real-Time Haul Truck Operational State Classification',
       description: 'Real-time classification of haul truck states (Loading, Hauling, Dumping, Idle) using GPS data and ML to optimize fleet efficiency in open-pit mining.',
-      images: ['/Projects/UnstructData/1.png'],
-      tags: ['Pandas','NumPy', 'Scikit-learn', 'Seaborn'],
+      images: ['/Projects/OESML/oesml1.0.png','/Projects/OESML/OESML1.png','/Projects/OESML/oesml1.2.png','/Projects/OESML/oesml2.png','/Projects/OESML/oes2.00.png','/Projects/OESML/oes2.0.png'],
+      tags: ['Pandas','NumPy', 'Scikit-learn', 'Seaborn','Matplotlib'],
       githubLink: 'https://github.com/mithgx/OES-ML-Challenge',
     },
     {
@@ -325,7 +325,7 @@ export default function ProjectsPage() {
                       <Button variant="outline" size="lg" asChild className="w-full mt-auto">
                         <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
                           <Github className="mr-2 h-4 w-4" />
-                          View Code
+                          View Notebook
                         </a>
                       </Button>
                     </div>

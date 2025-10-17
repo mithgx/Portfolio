@@ -9,6 +9,12 @@ import { useState } from 'react';
 
 export default function ContactPage() {
   const [showCopied, setShowCopied] = useState(false);
+  const [lightbox, setLightbox] = useState<{
+    open: boolean;
+    type: 'video' | 'image';
+    src: string;
+    caption?: string;
+  }>({ open: false, type: 'image', src: '' });
 
   const handleCopyEmail = async (e?: React.MouseEvent) => {
     if (e) e.preventDefault();
@@ -113,6 +119,114 @@ export default function ContactPage() {
               </div>
             </div>
 
+            {/* SideQuest - Cubing */}
+            <div className="card-enhanced p-8 bg-white dark:bg-neutral-950">
+              <h3 className="text-xl font-semibold mb-2">SideQuest - Cubing</h3>
+              <p className="text-sm text-muted-foreground mb-6">A glimpse of my cubing journey — solves and podiums.</p>
+              {/* Masonry Grid */}
+              <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:_balance]">
+                {/* Video 1 */}
+                <div 
+                  className="masonry-item mb-4 group cursor-pointer rounded-xl overflow-hidden bg-white dark:bg-neutral-900 shadow-sm hover:shadow-md transition-shadow"
+                  onClick={() => setLightbox({ open: true, type: 'video', src: '/Media/cube0.mp4', caption: '3x3 PB – 9.21s' })}
+                >
+                  <video 
+                    src="/Media/cube0.mp4" 
+                    autoPlay 
+                    muted 
+                    loop 
+                    playsInline
+                    className="w-full h-auto block transition-transform duration-300 group-hover:scale-[1.02]"
+                  />
+                  <div className="px-3 py-2 text-xs text-muted-foreground">3x3 PB – 9.21s</div>
+                </div>
+                {/* Video 2 */}
+                <div 
+                  className="masonry-item mb-4 group cursor-pointer rounded-xl overflow-hidden bg-white dark:bg-neutral-900 shadow-sm hover:shadow-md transition-shadow"
+                  onClick={() => setLightbox({ open: true, type: 'video', src: '/Media/cube1.mp4', caption: 'OH Solve – 21.34s' })}
+                >
+                  <video 
+                    src="/Media/cube1.mp4" 
+                    autoPlay 
+                    muted 
+                    loop 
+                    playsInline
+                    className="w-full h-auto block transition-transform duration-300 group-hover:scale-[1.02]"
+                  />
+                  <div className="px-3 py-2 text-xs text-muted-foreground">OH Solve – 21.34s</div>
+                </div>
+                {/* Video 3 */}
+                <div 
+                  className="masonry-item mb-4 group cursor-pointer rounded-xl overflow-hidden bg-white dark:bg-neutral-900 shadow-sm hover:shadow-md transition-shadow"
+                  onClick={() => setLightbox({ open: true, type: 'video', src: '/Media/cube2.MP4', caption: '4x4 Solve – 1:15' })}
+                >
+                  <video 
+                    src="/Media/cube2.MP4" 
+                    autoPlay 
+                    muted 
+                    loop 
+                    playsInline
+                    className="w-full h-auto block transition-transform duration-300 group-hover:scale-[1.02]"
+                  />
+                  <div className="px-3 py-2 text-xs text-muted-foreground">4x4 Solve – 1:15</div>
+                </div>
+                {/* Image 1 */}
+                <div 
+                  className="masonry-item mb-4 group cursor-pointer rounded-xl overflow-hidden bg-white dark:bg-neutral-900 shadow-sm hover:shadow-md transition-shadow"
+                  onClick={() => setLightbox({ open: true, type: 'image', src: '/Media/cubepic1.jpg', caption: 'VIT Cubing League Winner' })}
+                >
+                  <img 
+                    src="/Media/cubepic1.jpg" 
+                    alt="VIT Cubing League Winner"
+                    className="w-full h-auto block object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                  />
+                  <div className="px-3 py-2 text-xs text-muted-foreground">VIT Cubing League Winner</div>
+                </div>
+                {/* Video 4 */}
+                <div 
+                  className="masonry-item mb-4 group cursor-pointer rounded-xl overflow-hidden bg-white dark:bg-neutral-900 shadow-sm hover:shadow-md transition-shadow"
+                  onClick={() => setLightbox({ open: true, type: 'video', src: '/Media/cube3.MP4', caption: '3x3 Ao5 – 12.34' })}
+                >
+                  <video 
+                    src="/Media/cube3.MP4" 
+                    autoPlay 
+                    muted 
+                    loop 
+                    playsInline
+                    className="w-full h-auto block transition-transform duration-300 group-hover:scale-[1.02]"
+                  />
+                  <div className="px-3 py-2 text-xs text-muted-foreground">3x3 Ao5 – 12.34</div>
+                </div>
+                {/* Video 5 */}
+                <div 
+                  className="masonry-item mb-4 group cursor-pointer rounded-xl overflow-hidden bg-white dark:bg-neutral-900 shadow-sm hover:shadow-md transition-shadow"
+                  onClick={() => setLightbox({ open: true, type: 'video', src: '/Media/cube4.mp4', caption: 'Practice Session' })}
+                >
+                  <video 
+                    src="/Media/cube4.mp4" 
+                    autoPlay 
+                    muted 
+                    loop 
+                    playsInline
+                    className="w-full h-auto block transition-transform duration-300 group-hover:scale-[1.02]"
+                  />
+                  <div className="px-3 py-2 text-xs text-muted-foreground">Practice Session</div>
+                </div>
+                {/* Image 2 */}
+                <div 
+                  className="masonry-item mb-4 group cursor-pointer rounded-xl overflow-hidden bg-white dark:bg-neutral-900 shadow-sm hover:shadow-md transition-shadow"
+                  onClick={() => setLightbox({ open: true, type: 'image', src: '/Media/cubepic2.jpg', caption: 'Event Winner' })}
+                >
+                  <img 
+                    src="/Media/cubepic2.jpg" 
+                    alt="Event Winner"
+                    className="w-full h-auto block object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                  />
+                  <div className="px-3 py-2 text-xs text-muted-foreground">Event Winner</div>
+                </div>
+              </div>
+            </div>
+
             {/* Quick Response Promise */}
             <motion.div
               variants={fadeIn('up', 0.5)}
@@ -137,6 +251,43 @@ export default function ContactPage() {
           <div className="flex items-center gap-2">
             <Mail className="w-4 h-4" />
             Email copied to clipboard!
+          </div>
+        </div>
+      )}
+
+      {/* Lightbox Overlay */}
+      {lightbox.open && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <div 
+            className="absolute inset-0 bg-black/70 backdrop-blur-sm opacity-100 animate-fade-in"
+            onClick={() => setLightbox({ open: false, type: 'image', src: '' })}
+          />
+          <div className="relative z-10 max-w-5xl w-[92vw] md:w-[85vw] lg:w-[70vw]">
+            <button 
+              aria-label="Close"
+              className="absolute -top-12 right-0 md:-top-12 md:right-0 text-white/90 hover:text-white transition-colors"
+              onClick={() => setLightbox({ open: false, type: 'image', src: '' })}
+            >
+              ✕
+            </button>
+            <div className="rounded-xl overflow-hidden shadow-2xl bg-black">
+              {lightbox.type === 'video' ? (
+                <video 
+                  src={lightbox.src} 
+                  autoPlay 
+                  muted 
+                  loop 
+                  controls 
+                  playsInline
+                  className="w-full h-auto"
+                />
+              ) : (
+                <img src={lightbox.src} alt={lightbox.caption || 'media'} className="w-full h-auto" />
+              )}
+            </div>
+            {lightbox.caption && (
+              <div className="mt-3 text-center text-xs text-white/90">{lightbox.caption}</div>
+            )}
           </div>
         </div>
       )}
