@@ -16,15 +16,14 @@ export default function ContactPage() {
     caption?: string;
   }>({ open: false, type: 'image', src: '' });
 
-  // Media configuration - reordered for better visual balance
+  // Media configuration - using available files
   const mediaItems = [
     { src: '/Media/cube0.mp4', type: 'video' as const, title: '3x3 with Feet' },
     { src: '/Media/cubepic1.jpg', type: 'image' as const, title: "Kumaraguru Cube Open '24" },
-    { src: '/Media/cube2.MP4', type: 'video' as const, title: 'Sq1 ' },
-    { src: '/Media/cubepic2.jpg', type: 'image' as const, title: "SSN Cube Open '25 "},
     { src: '/Media/cube3.MP4', type: 'video' as const, title: 'Clock' },
-    { src: '/Media/sq1.mp4', type: 'video' as const, title: 'Skewb ' },
+    { src: '/Media/cubepic2.jpg', type: 'image' as const, title: "SSN Cube Open '25 "},
     { src: '/Media/ohmcc2.mp4', type: 'video' as const, title: "3x3 One-Handed " },
+    { src: '/Media/cube5.mp4', type: 'video' as const, title: 'Skewb ' },
     { src: 'wca-profile', type: 'wca' as const, title: 'WCA Profile' },
   ];
 
