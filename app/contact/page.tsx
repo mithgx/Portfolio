@@ -3,11 +3,33 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Github, Linkedin, Mail, FileText, Download, Copy } from 'lucide-react';
+import { LeetCodeIcon } from '@/components/ui/leetcode-icon';
 import { fadeIn } from '@/lib/animations';
 import { useState } from 'react';
 
 export default function ContactPage() {
   const [showCopied, setShowCopied] = useState(false);
+  const [lightbox, setLightbox] = useState<{
+    open: boolean;
+    type: 'video' | 'image';
+    src: string;
+    caption?: string;
+  }>({ open: false, type: 'image', src: '' });
+
+  // Media configuration - using available files
+  const mediaItems = [
+    { src: 'https://res.cloudinary.com/di3tlhcnj/video/upload/v1760771296/cube3_tabrsi.mp4', type: 'video' as const, title: 'Clock' },
+    { src: 'https://res.cloudinary.com/di3tlhcnj/video/upload/v1760771065/cube0_bgwz9n.mp4', type: 'video' as const, title: '3x3 with Feet' },
+    { src: '/Media/cubepic2.jpg', type: 'image' as const, title: "SSN Cube Open '25 "},
+    { src: 'https://res.cloudinary.com/di3tlhcnj/video/upload/v1760771088/ohmcc2_zn3uri.mp4', type: 'video' as const, title: "3x3 One-Handed " },
+    { src: '/Media/cubepic1.jpg', type: 'image' as const, title: "Kumaraguru Cube Open '24" },
+    { src: 'https://res.cloudinary.com/di3tlhcnj/video/upload/g_auto,q_auto,f_auto/v1760772133/sq1mcc_1_naipzn.mp4', type: 'video' as const, title: "SQ1 " },
+    { src: 'https://res.cloudinary.com/di3tlhcnj/video/upload/v1760773491/skewbmcc_1_ukhlek.mp4', type: 'video' as const, title: 'Skewb ' },
+    { src: 'wca-profile', type: 'wca' as const, title: 'WCA Profile' },
+  ];
+
+  // Lock the grid layout - no randomization
+  const shuffledMedia = mediaItems;
 
   const handleCopyEmail = async (e?: React.MouseEvent) => {
     if (e) e.preventDefault();
@@ -86,7 +108,7 @@ export default function ContactPage() {
 
             <div className="card-enhanced p-8">
               <h3 className="text-xl font-semibold mb-6">Follow Me</h3>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-3 gap-4">
                 <Button variant="outline" asChild className="h-14 flex-col gap-2">
                   <a href="https://github.com/mithgx" target="_blank" rel="noopener noreferrer">
                     <Github className="h-5 w-5" />
@@ -99,6 +121,74 @@ export default function ContactPage() {
                     <span className="text-xs">LinkedIn</span>
                   </a>
                 </Button>
+                <Button variant="outline" asChild className="h-14 flex-col gap-2">
+                  <a href="https://leetcode.com/u/mithileshg47/" target="_blank" rel="noopener noreferrer">
+                    <img 
+                      src="/icons8-leetcode-external-tal-revivo-light-tal-revivo-16.png" 
+                      alt="LeetCode" 
+                      className="h-5 w-5" 
+                    />
+                    <span className="text-xs">LeetCode</span>
+                  </a>
+                </Button>
+              </div>
+            </div>
+
+            {/* SideQuest - Cubing */}
+            <div className="card-enhanced p-8 bg-white dark:bg-neutral-950">
+              <h3 className="text-xl font-semibold mb-2">SideQuest - Cubing</h3>
+              <p className="text-sm text-muted-foreground mb-6">A glimpse of my cubing journey — solves and podiums.</p>
+              
+
+              {/* Masonry Grid */}
+                <div className="columns-2 sm:columns-2 lg:columns-2 xl:columns-3 gap-4 [column-fill:_balance]">
+                {shuffledMedia.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="masonry-item mb-4 group cursor-pointer rounded-xl overflow-hidden bg-white dark:bg-neutral-900 shadow-sm hover:shadow-md transition-shadow"
+                    onClick={() => item.type !== 'wca' && setLightbox({ open: true, type: item.type, src: item.src, caption: item.title })}
+                  >
+                    {item.type === 'video' ? (
+                      <video
+                        src={item.src}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                        className="w-full h-auto block transition-transform duration-300 group-hover:scale-[1.02]"
+                      />
+                    ) : item.type === 'image' ? (
+                      <img
+                        src={item.src}
+                        alt={item.title}
+                        className="w-full h-auto block object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                        loading="lazy"
+                      />
+                    ) : item.type === 'wca' ? (
+                      <a 
+                        href="https://www.worldcubeassociation.org/persons/2017GOPA01" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="block p-8 text-center transition-transform duration-300 group-hover:scale-[1.02]"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <div className="flex flex-col items-center gap-4">
+                          <img 
+                            src="/Media/WCA Logo.png" 
+                            alt="WCA Logo" 
+                            className="w-14 h-15 transition-transform duration-300 group-hover:scale-110"
+                          />
+                          <div>
+                            <h4 className="text-lg font-semibold text-foreground mb-1">WCA Profile</h4>
+                            <p className="text-sm text-muted-foreground">View my official competition results</p>
+                          </div>
+                        </div>
+                      </a>
+                    ) : null}
+                    <div className="px-3 py-2 text-xs text-muted-foreground">{item.title}</div>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -126,6 +216,47 @@ export default function ContactPage() {
           <div className="flex items-center gap-2">
             <Mail className="w-4 h-4" />
             Email copied to clipboard!
+          </div>
+        </div>
+      )}
+
+      {/* Lightbox Overlay */}
+      {lightbox.open && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <div 
+            className="absolute inset-0 bg-black/70 backdrop-blur-sm opacity-100 animate-fade-in"
+            onClick={() => setLightbox({ open: false, type: 'image', src: '' })}
+          />
+          <div className="relative z-10 max-w-4xl w-[90vw] max-h-[85vh] flex flex-col">
+            <button 
+              aria-label="Close"
+              className="absolute -top-12 right-0 md:-top-12 md:right-0 text-white/90 hover:text-white transition-colors z-20"
+              onClick={() => setLightbox({ open: false, type: 'image', src: '' })}
+            >
+              ✕
+            </button>
+            <div className="rounded-xl overflow-hidden shadow-2xl bg-black animate-zoom-in max-h-full flex items-center justify-center">
+              {lightbox.type === 'video' ? (
+                <video 
+                  src={lightbox.src} 
+                  autoPlay 
+                  muted 
+                  loop 
+                  controls 
+                  playsInline
+                  className="max-w-full max-h-[75vh] w-auto h-auto"
+                />
+              ) : (
+                <img 
+                  src={lightbox.src} 
+                  alt={lightbox.caption || 'media'} 
+                  className="max-w-full max-h-[75vh] w-auto h-auto object-contain" 
+                />
+              )}
+            </div>
+            {lightbox.caption && (
+              <div className="mt-3 text-center text-xs text-white/90">{lightbox.caption}</div>
+            )}
           </div>
         </div>
       )}

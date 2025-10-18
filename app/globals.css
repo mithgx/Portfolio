@@ -457,6 +457,37 @@ html {
   animation: gradient-shift 3s ease infinite;
 }
 
+/* Masonry helpers */
+.masonry-item {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fade-in 200ms ease-out both;
+}
+
+@keyframes zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-zoom-in {
+  animation: zoom-in 180ms ease-out both;
+}
+
 /* Enhanced Focus States */
 *:focus-visible {
   outline: 2px solid hsl(var(--primary));

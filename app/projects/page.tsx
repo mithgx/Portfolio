@@ -47,48 +47,48 @@ export default function ProjectsPage() {
     {
       title: 'ThunAI  ',
       description: ' ThunAI is an AI-powered project for classifying skin cancer from images, providing users with preliminary diagnostics, cancer-related information via a medical chatbot, and recommendations for nearby hospitals  ',
-      images: ['/Projects/ThunAI/2.png',  '/Projects/ThunAI/3.png',  '/Projects/ThunAI/4.png','/Projects/ThunAI/5.png', '/Projects/ThunAI/6.png'],
-      tags: ['Python', '', 'TensorFlow', 'NumPy','Folium','Firebase'],
+      images: ['/Projects/ThunAI/2.png',  '/Projects/ThunAI/3.png'],
+      tags: ['Python', 'TensorFlow', 'NumPy','Folium','Firebase'],
       githubLink: 'https://github.com/mithgx/ThunAI',
     },
   ];
 
   const dataAnalysisProjects = [
     {
-      title: 'Sales Insights Dashboard',
-      description: 'A dashboard for visualizing and analyzing sales data across regions and time periods. Built with Power BI and Python.',
-      images: ['/Projects/UnstructData/1.png'],
-      tags: ['Power BI', 'Python', 'Pandas'],
-      githubLink: '#',
+      title: 'Predictive Road Safety Insights from Multi-State Vehicle Sensor Data',
+      description: 'A data-driven road safety analytics project leveraging 1.8M+ ADAS and DMS sensor events from 130 vehicles across 7 Indian states. Using geospatial clustering, temporal trend analysis, and driver behavior insights, it identifies accident blackspots and risky driving patterns. The solution powers an interactive Power BI dashboard with actionable interventions for improving fleet and public road safety.',
+      images: ['/Projects/Vashist/v1.png','/Projects/Vashist/v2.png','/Projects/Vashist/v3.png','/Projects/Vashist/v4.png','/Projects/Vashist/v5.png'],
+      tags: ['Power BI','Pandas', 'Seaborn'],
+      githubLink: 'https://github.com/mithgx/NexusAeon-Vashisht-Hackathon',
     },
     {
-      title: 'Customer Segmentation',
-      description: 'Used clustering algorithms to segment customers for targeted marketing strategies. Includes interactive visualizations.',
-      images: ['/Projects/UnstructData/2.png'],
-      tags: ['scikit-learn', 'Seaborn', 'Jupyter'],
-      githubLink: '#',
+      title: 'Real-Time Haul Truck Operational State Classification',
+      description: 'Real-time classification of haul truck states (Loading, Hauling, Dumping, Idle) using GPS data and ML to optimize fleet efficiency in open-pit mining.',
+      images: ['/Projects/OESML/oesml1.0.png','/Projects/OESML/OESML1.png','/Projects/OESML/oesml1.2.png','/Projects/OESML/oesml2.png','/Projects/OESML/oes2.00.png','/Projects/OESML/oes2.0.png'],
+      tags: ['Pandas','NumPy', 'Scikit-learn', 'Seaborn','Matplotlib'],
+      githubLink: 'https://github.com/mithgx/OES-ML-Challenge',
     },
     {
-      title: 'Stock Price Prediction',
-      description: 'Time series analysis and forecasting of stock prices using ARIMA and LSTM models.',
-      images: ['/Projects/UnstructData/3.png'],
-      tags: ['ARIMA', 'LSTM', 'Matplotlib'],
-      githubLink: '#',
+      title: 'Nashik Weather Condition Classification using Random Forest',
+      description: 'Developed a machine learning model to predict daily weather conditions in Nashik using historical meteorological data. Leveraged Random Forest for robust, high-accuracy classification based on temperature, humidity, wind speed, and solar energy patterns.',
+      images: ['/Projects/Nashik_ML/NASHIK1.png','/Projects/Nashik_ML/Nashik2.0.png','/Projects/Nashik_ML/Nashik2.1.png','/Projects/Nashik_ML/Nashik2.png','/Projects/Nashik_ML/Nashik3.png'],
+      tags: ['Pandas', 'Random Forest', 'Matplotlib'],
+      githubLink: 'https://github.com/mithgx/MLOlympiad-24',
     },
-    {
-      title: 'Social Media Sentiment Analysis',
-      description: 'Analyzed Twitter data to extract sentiment trends and visualize public opinion on major events.',
-      images: ['/Projects/UnstructData/4.png'],
-      tags: ['NLTK', 'TextBlob', 'Plotly'],
-      githubLink: '#',
-    },
-    {
-      title: 'Healthcare Data Mining',
-      description: 'Explored large healthcare datasets to find patterns in patient outcomes and treatment effectiveness.',
-      images: ['/Projects/UnstructData/5.png'],
-      tags: ['SQL', 'Tableau', 'Python'],
-      githubLink: '#',
-    },
+    // {
+    //   title: 'Social Media Sentiment Analysis',
+    //   description: 'Analyzed Twitter data to extract sentiment trends and visualize public opinion on major events.',
+    //   images: ['/Projects/UnstructData/4.png'],
+    //   tags: ['NLTK', 'TextBlob', 'Plotly'],
+    //   githubLink: '#',
+    // },
+    // {
+    //   title: 'Healthcare Data Mining',
+    //   description: 'Explored large healthcare datasets to find patterns in patient outcomes and treatment effectiveness.',
+    //   images: ['/Projects/UnstructData/5.png'],
+    //   tags: ['SQL', 'Tableau', 'Python'],
+    //   githubLink: '#',
+    // },
   ];
 
   const [api, setApi] = useState<CarouselApi>();
@@ -162,7 +162,7 @@ export default function ProjectsPage() {
               </TabsTrigger>
               <TabsTrigger value="data" className="flex items-center gap-1.5 px-3 py-1.5 rounded-md data-[state=active]:bg-background data-[state=active]:shadow-sm text-sm">
                 <BarChart2 className="w-4 h-4" />
-                Data Analysis Projects
+                Data Analysis 
               </TabsTrigger>
             </TabsList>
           </div>
@@ -268,7 +268,7 @@ export default function ProjectsPage() {
                     className="group card-enhanced p-0 overflow-hidden rounded-2xl shadow-2xl bg-white dark:bg-zinc-900 flex flex-col h-full transform scale-105 hover:scale-110 transition-transform duration-300 max-w-2xl mx-auto w-full"
                     style={{ minHeight: '520px' }}
                   >
-                    <div className="relative rounded-xl overflow-hidden bg-muted/30 w-full h-48 sm:h-80">
+                    <div className="relative rounded-xl overflow-hidden bg-muted/30 w-full">
                       <Carousel 
                         className="relative w-full h-full"
                         setApi={setApi}
@@ -277,7 +277,7 @@ export default function ProjectsPage() {
                         <CarouselContent className="no-animation">
                           {project.images.map((img, i) => (
                             <CarouselItem key={i} className="no-animation">
-                              <div className="relative w-full h-80 flex items-center justify-center overflow-hidden bg-transparent group/image">
+                              <div className="relative w-full h-[200px] sm:h-[280px] md:h-[320px] flex items-center justify-center overflow-hidden bg-transparent group/image">
                                 <Image
                                   src={img}
                                   alt={project.title + ' image ' + (i+1)}
@@ -325,7 +325,7 @@ export default function ProjectsPage() {
                       <Button variant="outline" size="lg" asChild className="w-full mt-auto">
                         <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
                           <Github className="mr-2 h-4 w-4" />
-                          View Code
+                          View Notebook
                         </a>
                       </Button>
                     </div>
