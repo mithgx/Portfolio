@@ -186,6 +186,7 @@ export default function AchievementsPage() {
         '/DataQuest_Hackathon/IMG_0660.png',
         '/DataQuest_Hackathon/IMG_0663.png',
         '/DataQuest_Hackathon/IMG_0674.jpg',
+        '/DataQuest_Hackathon/dq.png',
       ],
       details:[
         'Performed EDA and developed impactful visualizations on customer credit finance data, focusing on patterns linked to user behavior.',

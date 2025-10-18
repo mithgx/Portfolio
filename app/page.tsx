@@ -10,7 +10,7 @@ import { SOCIAL_LINKS } from '@/lib/constants';
 const userData = {
   location: "Chennai, India",
   role: "Mithilesh Gopalakrishnan . S",
-  role_desc: "Focused on turning raw data into insight and vision into execution"
+  role_desc: "\"A good sketch is better than a long speech\""
 };
 
 export default function Home() {
@@ -42,10 +42,13 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-center"
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              <span className="block md:inline">Hi, I'm</span>{' '}
-              <span className="gradient-text block md:inline">Mithilesh</span>
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">
+              <span className="block md:inline">hi, i'm  </span>{' '}
+              <span className="gradient-text block md:inline"> mithilesh</span>
             </h1>
+            <p className="text-lg md:text-xl text-muted-foreground mb-6 font-light">
+              undergrad @vit 
+            </p>
           </motion.div>
 
           <motion.div
@@ -54,7 +57,7 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="sub-title"
           >
-            <p>{userData.role_desc}</p>
+            <p className="italic">{userData.role_desc}</p>
           </motion.div>
 
           <motion.div

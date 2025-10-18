@@ -90,6 +90,6 @@ export const EDUCATION = [
     degree: "Higher Secondary (CBSE)",
     period: "2020 - 2022",
     logo: "/nsnmem.jpeg",
-    description: "Graduated in Science stream with Computer Science."
+    description: "Graduated in PCM stream with Computer Science."
   }
-];
+];  
