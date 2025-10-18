@@ -50,8 +50,12 @@ cd portfolio
 npm run dev
 ```
 
-## Build for production
-```bash 
+
+
+## 🖼️ Customization - (For your own customization after pulling my repo)
+- Update your details in `lib/constants.ts` (projects, experience, education, etc.)
+- Add your images/logos to the `public/` or `public/logos/` directory 
+- Tweak styles in `app/globals.css` or Tailwind config
 
 npm run build
 npm start
