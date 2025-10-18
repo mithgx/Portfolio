@@ -18,12 +18,13 @@ export default function ContactPage() {
 
   // Media configuration - using available files
   const mediaItems = [
-    { src: '/Media/cube0.mp4', type: 'video' as const, title: '3x3 with Feet' },
-    { src: '/Media/cubepic1.jpg', type: 'image' as const, title: "Kumaraguru Cube Open '24" },
-    { src: '/Media/cube3.MP4', type: 'video' as const, title: 'Clock' },
+    { src: 'https://res.cloudinary.com/di3tlhcnj/video/upload/v1760771296/cube3_tabrsi.mp4', type: 'video' as const, title: 'Clock' },
+    { src: 'https://res.cloudinary.com/di3tlhcnj/video/upload/v1760771065/cube0_bgwz9n.mp4', type: 'video' as const, title: '3x3 with Feet' },
     { src: '/Media/cubepic2.jpg', type: 'image' as const, title: "SSN Cube Open '25 "},
-    { src: '/Media/ohmcc2.mp4', type: 'video' as const, title: "3x3 One-Handed " },
-    { src: '/Media/cube5.mp4', type: 'video' as const, title: 'Skewb ' },
+    { src: 'https://res.cloudinary.com/di3tlhcnj/video/upload/v1760771088/ohmcc2_zn3uri.mp4', type: 'video' as const, title: "3x3 One-Handed " },
+    { src: '/Media/cubepic1.jpg', type: 'image' as const, title: "Kumaraguru Cube Open '24" },
+    { src: 'https://res.cloudinary.com/di3tlhcnj/video/upload/g_auto,q_auto,f_auto/v1760772133/sq1mcc_1_naipzn.mp4', type: 'video' as const, title: "SQ1 " },
+    { src: 'https://res.cloudinary.com/di3tlhcnj/video/upload/v1760773491/skewbmcc_1_ukhlek.mp4', type: 'video' as const, title: 'Skewb ' },
     { src: 'wca-profile', type: 'wca' as const, title: 'WCA Profile' },
   ];
 
@@ -140,7 +141,7 @@ export default function ContactPage() {
               
 
               {/* Masonry Grid */}
-              <div className="columns-1 sm:columns-2 lg:columns-2 xl:columns-3 gap-4 [column-fill:_balance]">
+                <div className="columns-2 sm:columns-2 lg:columns-2 xl:columns-3 gap-4 [column-fill:_balance]">
                 {shuffledMedia.map((item, idx) => (
                   <div
                     key={idx}
@@ -176,7 +177,7 @@ export default function ContactPage() {
                           <img 
                             src="/Media/WCA Logo.png" 
                             alt="WCA Logo" 
-                            className="w-16 h-16 transition-transform duration-300 group-hover:scale-110"
+                            className="w-14 h-15 transition-transform duration-300 group-hover:scale-110"
                           />
                           <div>
                             <h4 className="text-lg font-semibold text-foreground mb-1">WCA Profile</h4>
