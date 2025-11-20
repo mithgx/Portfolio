@@ -13,7 +13,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Mithilesh Gopalakrishnan S | Portfolio",
+  title: "Mithilesh Gopalakrishnan S | Portfolio | sub-x1",
   description: "Official portfolio of Mithilesh Gopalakrishnan - engineering student, developer, and tech enthusiast.",
   verification: {
     google: 'CkIut9YGzcQN0hhQFD9wEud5BUUkJv5NKmAxi3JCERQ',
